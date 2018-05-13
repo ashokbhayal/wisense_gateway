@@ -1,0 +1,11 @@
+<$<fc:c2:3d:00:00:00:db:40 NCT4JOQR1ZI5DEHB 13 field1 >$>
+<$<fc:c2:3d:00:00:02:b9:9b 4WZBK65FZNTO6JWS 13 field1 >$>
+<$<fc:c2:3d:00:00:10:82:97 XXTNNZSMAZQKMIL5  9 field1 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 120 field1 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 9 field2 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 176 field3 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 177 field4 >$>
+
+
+
+

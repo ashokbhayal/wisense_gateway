@@ -1,0 +1,19 @@
+#!/bin/bash
+
+runner_pid=`ps -eo pid -eo comm | grep runn | cut -f1 -d'r'`
+#echo $?
+echo runner_pid $runner_pid 
+
+wsuart_pid=`ps -eo pid -eo comm | grep wsuart | cut -f1 -d'w'`
+#echo $?
+echo wsuart_pid $wsuart_pid 
+
+echo sudo kill -SIGSTOP $runner_pid
+sudo kill -SIGSTOP $runner_pid
+
+echo sudo kill -9 $wsuart_pid
+sudo kill -9 $wsuart_pid
+
+ps -ef | grep runner  | grep -v grep
+ps -ef | grep wsuart  | grep -v grep
+

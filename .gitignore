@@ -1,0 +1,5 @@
+*.exe
+*.o
+gw_evt_list.doc
+gw_c*17
+*.a

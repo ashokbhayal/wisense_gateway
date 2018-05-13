@@ -1,0 +1,2 @@
+echo gcc -DJSON_ENC_ENA -I. -I./jansson-2.8/src gw.c ./jansson-2.8/src/.libs/libjansson.a   -o gw.exe -lm
+gcc -DJSON_ENC_ENA -I. -I./jansson-2.8/src gw.c ./jansson-2.8/src/.libs/libjansson.a   -o gw.exe -lm

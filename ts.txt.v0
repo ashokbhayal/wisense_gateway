@@ -1,0 +1,25 @@
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 120 field1 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 9 field2 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 176 field3 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 177 field4 >$>
+<$<fc:c2:3d:00:00:11:1a:ea ZBT7N4IKJKCND80L 177 field4 >$>
+<$<fc:c2:3d:00:00:02:dc:f1 85ZH77FVAVBZE7QR 120 field1 >$>
+<$<fc:c2:3d:00:00:02:dc:f1 85ZH77FVAVBZE7QR 13 field2 >$>
+<$<fc:c2:3d:00:00:02:b9:9b G8SGU2PIXEWXNRYF 120 field1 >$>
+<$<fc:c2:3d:00:00:02:b9:9b G8SGU2PIXEWXNRYF 13 field2 >$>
+
+
+<$<fc:c2:3d:00:00:10:82:97 JLUIYE8ZBYK0QL99  9 field1 >$>
+<$<fc:c2:3d:00:00:11:1a:ea JLUIYE8ZBYK0QL99 177 field2 >$>
+<$<fc:c2:3d:00:00:11:1a:ea JLUIYE8ZBYK0QL99  9 field3 >$>
+<$<fc:c2:3d:00:00:02:b9:9b JLUIYE8ZBYK0QL99 13 field4 >$>
+<$<fc:c2:3d:00:00:00:db:40 JLUIYE8ZBYK0QL99 13 field5 >$>
+
+
+
+
+Node Idx <000> / short addr <08895> / parent <00001> / ext addr <fc:c2:3d:00:00:11:1a:ea> / cap <0x80>   00010
+Node Idx <001> / short addr <08896> / parent <00001> / ext addr <fc:c2:3d:00:00:10:82:97> / cap <0x80>   00005
+Node Idx <002> / short addr <08897> / parent <00001> / ext addr <fc:c2:3d:00:00:02:b9:9b> / cap <0x80>   00010
+Node Idx <003> / short addr <08898> / parent <00001> / ext addr <fc:c2:3d:00:00:00:db:40> / cap <0x80>   00005
+

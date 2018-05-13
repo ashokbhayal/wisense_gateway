@@ -1,0 +1,5 @@
+echo cd ./libthingspeak/src; 
+cd ./libthingspeak/src; make; 
+cd ../..;
+echo gcc -D__THINGSPEAK_SUPPORT_ENA__ -I. -I./libthingspeak/src gw.c -o gw.exe ./libthingspeak/src/ts.a
+gcc -D__THINGSPEAK_SUPPORT_ENA__ -I. -I./libthingspeak/src gw.c -o gw.exe ./libthingspeak/src/ts.a

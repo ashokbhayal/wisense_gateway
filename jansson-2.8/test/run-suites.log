@@ -1,0 +1,1151 @@
+Suite: api
+S..............
+Suite: invalid
+../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F../test/suites/invalid/run: line 30: cmp: command not found
+F
+=================================================================
+invalid/apostrophe
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       invalid token near '''
+ACTUAL ERROR:
+       1 2 2
+       invalid token near '''
+
+=================================================================
+invalid/ascii-unicode-identifier
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 1 1
+       '[' or '{' expected near 'a'
+ACTUAL ERROR:
+       1 1 1
+       '[' or '{' expected near 'a'
+
+=================================================================
+invalid/brace-comma
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       string or '}' expected near ','
+ACTUAL ERROR:
+       1 2 2
+       string or '}' expected near ','
+
+=================================================================
+invalid/bracket-comma
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       unexpected token near ','
+ACTUAL ERROR:
+       1 2 2
+       unexpected token near ','
+
+=================================================================
+invalid/bracket-one-comma
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 4
+       ']' expected near end of file
+ACTUAL ERROR:
+       2 0 4
+       ']' expected near end of file
+
+=================================================================
+invalid/empty
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 0 0
+       '[' or '{' expected near end of file
+ACTUAL ERROR:
+       1 0 0
+       '[' or '{' expected near end of file
+
+=================================================================
+invalid/extra-comma-in-array
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 4 4
+       unexpected token near ']'
+ACTUAL ERROR:
+       1 4 4
+       unexpected token near ']'
+
+=================================================================
+invalid/extra-comma-in-multiline-array
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       6 1 17
+       unexpected token near ']'
+ACTUAL ERROR:
+       6 1 17
+       unexpected token near ']'
+
+=================================================================
+invalid/garbage-after-newline
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 3 11
+       end of file expected near 'foo'
+ACTUAL ERROR:
+       2 3 11
+       end of file expected near 'foo'
+
+=================================================================
+invalid/garbage-at-the-end
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 10 10
+       end of file expected near 'foo'
+ACTUAL ERROR:
+       1 10 10
+       end of file expected near 'foo'
+
+=================================================================
+invalid/integer-starting-with-zero
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       invalid token near '0'
+ACTUAL ERROR:
+       1 2 2
+       invalid token near '0'
+
+=================================================================
+invalid/invalid-escape
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 4 4
+       invalid escape near '"\a'
+ACTUAL ERROR:
+       1 4 4
+       invalid escape near '"\a'
+
+=================================================================
+invalid/invalid-identifier
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 5 5
+       invalid token near 'troo'
+ACTUAL ERROR:
+       1 5 5
+       invalid token near 'troo'
+
+=================================================================
+invalid/invalid-negative-integer
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 8 8
+       ']' expected near 'foo'
+ACTUAL ERROR:
+       1 8 8
+       ']' expected near 'foo'
+
+=================================================================
+invalid/invalid-negative-real
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 12 12
+       ']' expected near 'foo'
+ACTUAL ERROR:
+       1 12 12
+       ']' expected near 'foo'
+
+=================================================================
+invalid/invalid-second-surrogate
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 62 62
+       invalid Unicode '\uD888\u3210'
+ACTUAL ERROR:
+       1 62 62
+       invalid Unicode '\uD888\u3210'
+
+=================================================================
+invalid/invalid-unicode-escape
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 5 5
+       invalid escape near '"\uq'
+ACTUAL ERROR:
+       1 5 5
+       invalid escape near '"\uq'
+
+=================================================================
+invalid/lone-open-brace
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 2
+       string or '}' expected near end of file
+ACTUAL ERROR:
+       2 0 2
+       string or '}' expected near end of file
+
+=================================================================
+invalid/lone-open-bracket
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 2
+       ']' expected near end of file
+ACTUAL ERROR:
+       2 0 2
+       ']' expected near end of file
+
+=================================================================
+invalid/lone-second-surrogate
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 40 40
+       invalid Unicode '\uDFAA'
+ACTUAL ERROR:
+       1 40 40
+       invalid Unicode '\uDFAA'
+
+=================================================================
+invalid/minus-sign-without-number
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       invalid token near '-'
+ACTUAL ERROR:
+       1 2 2
+       invalid token near '-'
+
+=================================================================
+invalid/negative-integer-starting-with-zero
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       invalid token near '-0'
+ACTUAL ERROR:
+       1 3 3
+       invalid token near '-0'
+
+=================================================================
+invalid/null
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 4 4
+       '[' or '{' expected near 'null'
+ACTUAL ERROR:
+       1 4 4
+       '[' or '{' expected near 'null'
+
+=================================================================
+invalid/null-byte-in-object-key
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 15 15
+       NUL byte in object key not supported near '"foo\u0000bar"'
+ACTUAL ERROR:
+       1 15 15
+       NUL byte in object key not supported near '"foo\u0000bar"'
+
+=================================================================
+invalid/null-byte-in-string
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 12 12
+       control character 0x0 near '"null byte '
+ACTUAL ERROR:
+       1 12 12
+       control character 0x0 near '"null byte '
+
+=================================================================
+invalid/null-byte-outside-string
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       invalid token near end of file
+ACTUAL ERROR:
+       1 2 2
+       invalid token near end of file
+
+=================================================================
+invalid/null-escape-in-string
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 33 33
+       \u0000 is not allowed without JSON_ALLOW_NUL
+ACTUAL ERROR:
+       1 33 33
+       \u0000 is not allowed without JSON_ALLOW_NUL
+
+=================================================================
+invalid/object-apostrophes
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       string or '}' expected near '''
+ACTUAL ERROR:
+       1 2 2
+       string or '}' expected near '''
+
+=================================================================
+invalid/object-garbage-at-end
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 12 12
+       '}' expected near '123'
+ACTUAL ERROR:
+       1 12 12
+       '}' expected near '123'
+
+=================================================================
+invalid/object-in-unterminated-array
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 4
+       ']' expected near end of file
+ACTUAL ERROR:
+       2 0 4
+       ']' expected near end of file
+
+=================================================================
+invalid/object-no-colon
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 5
+       ':' expected near end of file
+ACTUAL ERROR:
+       2 0 5
+       ':' expected near end of file
+
+=================================================================
+invalid/object-no-value
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 6
+       unexpected token near end of file
+ACTUAL ERROR:
+       2 0 6
+       unexpected token near end of file
+
+=================================================================
+invalid/object-unterminated-value
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 7 7
+       unexpected newline near '"a'
+ACTUAL ERROR:
+       1 7 7
+       unexpected newline near '"a'
+
+=================================================================
+invalid/real-garbage-after-e
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       invalid token near '1e'
+ACTUAL ERROR:
+       1 3 3
+       invalid token near '1e'
+
+=================================================================
+invalid/real-negative-overflow
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 15 15
+       real number overflow near '-123123e100000'
+ACTUAL ERROR:
+       1 15 15
+       real number overflow near '-123123e100000'
+
+=================================================================
+invalid/real-positive-overflow
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 14 14
+       real number overflow near '123123e100000'
+ACTUAL ERROR:
+       1 14 14
+       real number overflow near '123123e100000'
+
+=================================================================
+invalid/real-truncated-at-e
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       invalid token near '1e'
+ACTUAL ERROR:
+       1 3 3
+       invalid token near '1e'
+
+=================================================================
+invalid/real-truncated-at-point
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       invalid token near '1.'
+ACTUAL ERROR:
+       1 3 3
+       invalid token near '1.'
+
+=================================================================
+invalid/recursion-depth
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2049 2049
+       maximum parsing depth reached near '['
+ACTUAL ERROR:
+       1 2049 2049
+       maximum parsing depth reached near '['
+
+=================================================================
+invalid/tab-character-in-string
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       control character 0x9 near '"'
+ACTUAL ERROR:
+       1 2 2
+       control character 0x9 near '"'
+
+=================================================================
+invalid/too-big-negative-integer
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 32 32
+       too big negative integer
+ACTUAL ERROR:
+       1 32 32
+       too big negative integer
+
+=================================================================
+invalid/too-big-positive-integer
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 31 31
+       too big integer
+ACTUAL ERROR:
+       1 31 31
+       too big integer
+
+=================================================================
+invalid/truncated-unicode-surrogate
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 46 46
+       invalid Unicode '\uDADA'
+ACTUAL ERROR:
+       1 46 46
+       invalid Unicode '\uDADA'
+
+=================================================================
+invalid/unicode-identifier
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 1 2
+       '[' or '{' expected near 'å'
+ACTUAL ERROR:
+       1 1 2
+       '[' or '{' expected near 'å'
+
+=================================================================
+invalid/unterminated-array
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 5
+       ']' expected near end of file
+ACTUAL ERROR:
+       2 0 5
+       ']' expected near end of file
+
+=================================================================
+invalid/unterminated-array-and-object
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       2 0 3
+       string or '}' expected near end of file
+ACTUAL ERROR:
+       2 0 3
+       string or '}' expected near end of file
+
+=================================================================
+invalid/unterminated-empty-key
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       unexpected newline near '"'
+ACTUAL ERROR:
+       1 2 2
+       unexpected newline near '"'
+
+=================================================================
+invalid/unterminated-key
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       unexpected newline near '"a'
+ACTUAL ERROR:
+       1 3 3
+       unexpected newline near '"a'
+
+=================================================================
+invalid/unterminated-object-and-array
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 2 2
+       string or '}' expected near '['
+ACTUAL ERROR:
+       1 2 2
+       string or '}' expected near '['
+
+=================================================================
+invalid/unterminated-string
+=================================================================
+VARIANT: normal
+EXPECTED ERROR:
+       1 3 3
+       unexpected newline near '"a'
+ACTUAL ERROR:
+       1 3 3
+       unexpected newline near '"a'
+
+=================================================================
+Suite: invalid-unicode
+../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F../test/suites/invalid-unicode/run: line 15: cmp: command not found
+F
+=================================================================
+invalid-unicode/encoded-surrogate-half
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xed near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xed near '"'
+
+=================================================================
+invalid-unicode/invalid-utf-8-after-backslash
+=================================================================
+EXPECTED ERROR:
+       1 3 3
+       unable to decode byte 0xe5 near '"\'
+ACTUAL ERROR:
+       1 3 3
+       unable to decode byte 0xe5 near '"\'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-array
+=================================================================
+EXPECTED ERROR:
+       1 1 1
+       unable to decode byte 0xe5
+ACTUAL ERROR:
+       1 1 1
+       unable to decode byte 0xe5
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-bigger-int
+=================================================================
+EXPECTED ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '123'
+ACTUAL ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '123'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-escape
+=================================================================
+EXPECTED ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '"\u'
+ACTUAL ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '"\u'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-exponent
+=================================================================
+EXPECTED ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '1e1'
+ACTUAL ERROR:
+       1 4 4
+       unable to decode byte 0xe5 near '1e1'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-identifier
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near 'a'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near 'a'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-int
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near '0'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near '0'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-real-after-e
+=================================================================
+EXPECTED ERROR:
+       1 3 3
+       unable to decode byte 0xe5 near '1e'
+ACTUAL ERROR:
+       1 3 3
+       unable to decode byte 0xe5 near '1e'
+
+=================================================================
+invalid-unicode/invalid-utf-8-in-string
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xe5 near '"'
+
+=================================================================
+invalid-unicode/lone-invalid-utf-8
+=================================================================
+EXPECTED ERROR:
+       1 0 0
+       unable to decode byte 0xe5
+ACTUAL ERROR:
+       1 0 0
+       unable to decode byte 0xe5
+
+=================================================================
+invalid-unicode/lone-utf-8-continuation-byte
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0x81 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0x81 near '"'
+
+=================================================================
+invalid-unicode/not-in-unicode-range
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xf4 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xf4 near '"'
+
+=================================================================
+invalid-unicode/overlong-3-byte-encoding
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xe0 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xe0 near '"'
+
+=================================================================
+invalid-unicode/overlong-4-byte-encoding
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xf0 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xf0 near '"'
+
+=================================================================
+invalid-unicode/overlong-ascii-encoding
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xc1 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xc1 near '"'
+
+=================================================================
+invalid-unicode/restricted-utf-8
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xfd near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xfd near '"'
+
+=================================================================
+invalid-unicode/truncated-utf-8
+=================================================================
+EXPECTED ERROR:
+       1 2 2
+       unable to decode byte 0xe0 near '"'
+ACTUAL ERROR:
+       1 2 2
+       unable to decode byte 0xe0 near '"'
+
+=================================================================
+Suite: valid
+../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F../test/suites/valid/run: line 29: cmp: command not found
+F
+=================================================================
+valid/complex-array
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1, 2, 3, 4, "a", "b", "c", {"core": "dump", "foo": "bar"}, true, false, true, true, null, false]
+ACTUAL OUTPUT:
+       [1, 2, 3, 4, "a", "b", "c", {"core": "dump", "foo": "bar"}, true, false, true, true, null, false]
+
+=================================================================
+valid/empty-array
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       []
+ACTUAL OUTPUT:
+       []
+
+=================================================================
+valid/empty-object
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       {}
+ACTUAL OUTPUT:
+       {}
+
+=================================================================
+valid/empty-object-in-array
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [{}]
+ACTUAL OUTPUT:
+       [{}]
+
+=================================================================
+valid/empty-string
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [""]
+ACTUAL OUTPUT:
+       [""]
+
+=================================================================
+valid/escaped-utf-control-char
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["\u0012 escaped control character"]
+ACTUAL OUTPUT:
+       ["\u0012 escaped control character"]
+
+=================================================================
+valid/false
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [false]
+ACTUAL OUTPUT:
+       [false]
+
+=================================================================
+valid/negative-int
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [-123]
+ACTUAL OUTPUT:
+       [-123]
+
+=================================================================
+valid/negative-one
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [-1]
+ACTUAL OUTPUT:
+       [-1]
+
+=================================================================
+valid/negative-zero
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [0]
+ACTUAL OUTPUT:
+       [0]
+
+=================================================================
+valid/null
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [null]
+ACTUAL OUTPUT:
+       [null]
+
+=================================================================
+valid/one-byte-utf-8
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [", one-byte UTF-8"]
+ACTUAL OUTPUT:
+       [", one-byte UTF-8"]
+
+=================================================================
+valid/real-capital-e
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1e22]
+ACTUAL OUTPUT:
+       [1e22]
+
+=================================================================
+valid/real-capital-e-negative-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [0.01]
+ACTUAL OUTPUT:
+       [0.01]
+
+=================================================================
+valid/real-capital-e-positive-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [100.0]
+ACTUAL OUTPUT:
+       [100.0]
+
+=================================================================
+valid/real-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1.2299999999999999e47]
+ACTUAL OUTPUT:
+       [1.2299999999999999e47]
+
+=================================================================
+valid/real-fraction-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1.23456e80]
+ACTUAL OUTPUT:
+       [1.23456e80]
+
+=================================================================
+valid/real-negative-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [0.01]
+ACTUAL OUTPUT:
+       [0.01]
+
+=================================================================
+valid/real-positive-exponent
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [100.0]
+ACTUAL OUTPUT:
+       [100.0]
+
+=================================================================
+valid/real-subnormal-number
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1.8011670033376514e-308]
+ACTUAL OUTPUT:
+       [1.8011670033376514e-308]
+
+=================================================================
+valid/real-underflow
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [0.0]
+ACTUAL OUTPUT:
+       [0.0]
+
+=================================================================
+valid/short-string
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["a"]
+ACTUAL OUTPUT:
+       ["a"]
+
+=================================================================
+valid/simple-ascii-string
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["abcdefghijklmnopqrstuvwxyz1234567890 "]
+ACTUAL OUTPUT:
+       ["abcdefghijklmnopqrstuvwxyz1234567890 "]
+
+=================================================================
+valid/simple-int-0
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [0]
+ACTUAL OUTPUT:
+       [0]
+
+=================================================================
+valid/simple-int-1
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [1]
+ACTUAL OUTPUT:
+       [1]
+
+=================================================================
+valid/simple-int-123
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [123]
+ACTUAL OUTPUT:
+       [123]
+
+=================================================================
+valid/simple-object
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       {"a": []}
+ACTUAL OUTPUT:
+       {"a": []}
+
+=================================================================
+valid/simple-real
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [123.456789]
+ACTUAL OUTPUT:
+       [123.456789]
+
+=================================================================
+valid/string-escapes
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["\"\\/\b\f\n\r\t"]
+ACTUAL OUTPUT:
+       ["\"\\/\b\f\n\r\t"]
+
+=================================================================
+valid/three-byte-utf-8
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["ࠡ three-byte UTF-8"]
+ACTUAL OUTPUT:
+       ["ࠡ three-byte UTF-8"]
+
+=================================================================
+valid/true
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       [true]
+ACTUAL OUTPUT:
+       [true]
+
+=================================================================
+valid/two-byte-utf-8
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["ģ two-byte UTF-8"]
+ACTUAL OUTPUT:
+       ["ģ two-byte UTF-8"]
+
+=================================================================
+valid/utf-8-string
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["€þıœəßð some utf-8 ĸʒ×ŋµåäö𝄞"]
+ACTUAL OUTPUT:
+       ["€þıœəßð some utf-8 ĸʒ×ŋµåäö𝄞"]
+
+=================================================================
+valid/utf-surrogate-four-byte-encoding
+=================================================================
+VARIANT: normal
+EXPECTED OUTPUT:
+       ["𝄞 surrogate, four-byte UTF-8"]
+ACTUAL OUTPUT:
+       ["𝄞 surrogate, four-byte UTF-8"]
+
+=================================================================
+3 of 4 test suites failed
+FAIL run-suites (exit status: 1)
