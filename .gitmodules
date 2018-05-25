@@ -1,0 +1,3 @@
+[submodule "libthingspeak"]
+	path = libthingspeak
+	url = https://github.com/gabrield/libthingspeak.git
