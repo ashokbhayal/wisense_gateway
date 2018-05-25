@@ -28,7 +28,7 @@
 /*
  * --------------------------------------------------------------------------------------------------
  */
-#define ATUAT_TAG_BCN_PDU_LEN  8 
+#define ATUAT_TAG_BCN_PDU_LEN  8
 #define ATUAT_TAG_BCN_PDU_TAG_ID_FIELD_LEN  3
 #define ATUAT_TAG_BCN_PDU_CNTR_FIELD_LEN  2
 #define ATUAT_TAG_BCN_PDU_VCC_FIELD_LEN  2
@@ -71,7 +71,7 @@ GW_tsMappingEntry_s *GW_tsMappingHead_p = NULL;
 
 char GW_jsonRespBuffer[10240];
 char GW_httpRequestBuff[10240];
-char GW_httpResponseBuff[10240] = 
+char GW_httpResponseBuff[10240] =
 "HTTP/1.1 200 OK\n"
 "Content-Type: application/json \n"
 "Access-Control-Allow-Origin: * \n"
@@ -87,7 +87,7 @@ pthread_mutex_t GW_jsonBuffMutex = PTHREAD_MUTEX_INITIALIZER;
 // Comment - ignore
 int GW_cidPortNr = 0;
 
-int GW_cidSockFd = -1;  
+int GW_cidSockFd = -1;
 
 
 #define RFD_LIST_ONLY  1
@@ -103,7 +103,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen);
 int GW_buildSendHdr(int msgType, unsigned char *pyldBuff_p, int pyldLen);
 int GW_readSerIntf(int expMsgType, int tmoSecs);
 
-char GW_eventStrBuff[4096];   
+char GW_eventStrBuff[4096];
 
 unsigned int GW_coordPendingAttrId = 0;
 
@@ -119,7 +119,7 @@ unsigned char serRxBuff[SER_BUFF_LEN];
 
 int FW_segCnt = 0;
 
-char *LPWMN_macMod[ ] = 
+char *LPWMN_macMod[ ] =
 {
   "NONE",
   "APP",
@@ -127,7 +127,7 @@ char *LPWMN_macMod[ ] =
   "FWD_PATH",
   "ASSOC_REQ_RELAY",
   "ASSOC_RESP_TO_RELAY",
-  "GW"               
+  "GW"
 };
 
 
@@ -142,7 +142,7 @@ char *UC_FU_nodeStateStr[ ] =
   "WRITING_SEG"
 };
 
-char *UC_FU_rcStr[ ] = 
+char *UC_FU_rcStr[ ] =
 {
   "SUCCESS",
   "NO_STORAGE1",
@@ -160,7 +160,7 @@ char *UC_FU_rcStr[ ] =
   "STORE_IMAGE_INFO_CORRUPT"
 };
 
-char  *LPWMN_adpModuleStsErr[ ] = 
+char  *LPWMN_adpModuleStsErr[ ] =
 {
    "SUCCESS",
    "Specified node not found !!",
@@ -175,21 +175,21 @@ char  *LPWMN_adpModuleStsErr[ ] =
    "NODE_NOT_ASSOCIATED",
    "TOO_MANY_FRAGMENTS",
    "FRAG_NOT_SUPPORTED"
-}; 
-         
+};
+
 
 typedef struct
 {
   unsigned int sensorId;
   char sensorPartNr[32];
   char sensorType[32];
-  char Mfr[16]; 
+  char Mfr[16];
   char valueType[16];
   char interface[16];
 } GW_sensorInfo_s;
-  
 
-const char *GW_scaleList[ ] = 
+
+const char *GW_scaleList[ ] =
 {
   "TERA",
   "GIGA",
@@ -205,7 +205,7 @@ const char *GW_scaleList[ ] =
   "NANO"
 };
 
-const GW_sensorInfo_s GW_sensorInfoList[  ]  = 
+const GW_sensorInfo_s GW_sensorInfoList[  ]  =
 {
    {120,  "MSP430_ADC_10", "Micro_Supply_Voltage", "TI", "Number", "ADC"},
    {PLTFRM_LM75B_1_DEV_ID,  "LM75B", "Temperature", "NXP", "Number", "I2C"},
@@ -220,9 +220,9 @@ const GW_sensorInfo_s GW_sensorInfoList[  ]  =
 
    {1024, "",  "",  "", ""}
 };
-            
 
-GW_attrDescrListEntry_s GW_attrDescrList[] = 
+
+GW_attrDescrListEntry_s GW_attrDescrList[] =
 {
     {MAC_ACK_TMO_DELTA_ATTR_ID,  "MAC_ACK_TMO_DELTA",  1,  1,  2},
     {MAC_CCA_FLR_CNT_ATTR_ID, "MAC_CCA_FLR_CNT", 1, 0, 4},
@@ -236,8 +236,8 @@ GW_attrDescrListEntry_s GW_attrDescrList[] =
     {PHY_RF_CHANN_ID_ATTR_ID, "PHY_RF_CHANN", 1, 1, 1},  // Coord only (RD/WR)
     {PHY_TX_POWER_ATTR_ID, "PHY_TX_POWER", 1, 1, 2},  // Coord only (RD/WR)
     {APP_SENSOR_DATA_PUSH_INTERVAL_SECS_ATTR_ID, "APP_SENSOR_DATA_PUSH_INTERVAL_SECS", 1, 1, 4},  // RFD/FFD only
-    {FW_BUILD_DATE_ATTR_ID, "FW_BUILD_DATE",  1, 0, -1},  // string, -1 means variable length  
-    {FW_BUILD_TIME_ATTR_ID, "FW_BUILD_TIME",  1, 0, -1},  // string, -1 means variable length 
+    {FW_BUILD_DATE_ATTR_ID, "FW_BUILD_DATE",  1, 0, -1},  // string, -1 means variable length
+    {FW_BUILD_TIME_ATTR_ID, "FW_BUILD_TIME",  1, 0, -1},  // string, -1 means variable length
     {SYS_FREE_MEM_DESC_CNT_ATTR_ID, "SYS_FREE_MEM_DESC_CNT", 1, 0, 2},
     {MAC_ACK_FRAME_RAW_TRX_TIME_ATTR_ID, "MAC_ACK_FRAME_RAW_TRX_TIME", 1, 0, 2},
     {FU_IMAGE_STORE_IMAGE_FLAGS_ATTR_ID, "FU_IMAGE_STORE_IMAGE_FLAGS", 1, 0, 4},
@@ -301,11 +301,11 @@ GW_attrDescrListEntry_s GW_attrDescrList[] =
     {APP_ADP_DATA_REQ_CNT_ATTR_ID, "APP_ADP_DATA_REQ_CNT", 1, 0, 4},
     {APP_ADP_DATA_REQ_FLR_CNT_ATTR_ID, "APP_ADP_DATA_REQ_FLR_CNT", 1, 0, 4},
     {APP_SENSOR_DATA_TX_INTERVAL_ATTR_ID, "APP_SENSOR_DATA_TX_INTERVAL", 1, 0, 4},   //  need to make this rd/wr
-    {APP_MAX_SENSOR_DATA_TX_INTERVAL_ATTR_ID, "APP_MAX_SENSOR_DATA_TX_INTERVAL", 1, 1, 4}, 
+    {APP_MAX_SENSOR_DATA_TX_INTERVAL_ATTR_ID, "APP_MAX_SENSOR_DATA_TX_INTERVAL", 1, 1, 4},
     {APP_SENSOR_RPT_ENA_BIT_MSK_ATTR_ID, "APP_SENSOR_RPT_ENA_BIT_MSK", 1, 1, 2},
     {FFD_LAST_APP_TX_TO_RBT_INTERVAL_SECS_ATTR_ID, "FFD_LAST_APP_TX_TO_RBT_INTERVAL_SECS", 1, 1, 4},
     {FFD_LAST_APP_TX_TO_RBT_INTERVAL_MULTIPLE_ATTR_ID, "FFD_LAST_APP_TX_TO_RBT_INTERVAL_MULTIPLE", 1, 1, 1},
-    {MESH_TRIGGER_PATH_DISC_ATTR_ID, "MESH_TRIGGER_PATH_DISC", 0, 1, 1}, // action 
+    {MESH_TRIGGER_PATH_DISC_ATTR_ID, "MESH_TRIGGER_PATH_DISC", 0, 1, 1}, // action
     {APP_PIR_SENSOR_ENA_DIS_CTRL_ATTR_ID, "APP_PIR_SENSOR_ENA_DIS_CTRL", 1, 1, 1},  // read/write
     {APP_VEH_DET_MFS_HPF_DETECTION_THRESHOLD,  "APP_VEH_DET_MFS_HPF_DETECTION_THRESHOLD", 1, 1, 2},  // read/write
     {APP_VEH_DET_MFS_HPF_SETTLING_THRESHOLD, "APP_VEH_DET_MFS_HPF_SETTLING_THRESHOLD", 1, 1, 2},
@@ -349,7 +349,7 @@ GW_attrDescrListEntry_s GW_attrDescrList[] =
 };
 
 
-GW_electronCmd_s GW_electronCmdList[ ] = 
+GW_electronCmd_s GW_electronCmdList[ ] =
 {
   {"2g-ipv4", LPWMN_GW_MSG_TYPE_ELECTRON_GET_IPV4_ADDR},
   {"electron-battV", LPWMN_GW_MSG_TYPE_ELECTRON_GET_BATT_VOLTAGE},
@@ -370,23 +370,23 @@ int __latestVccSet = 0;
 static cntxt_s uart_cntxt;
 
 int listTblIdx = 0;
-                  
-int hdrAcked = 0, 
+
+int hdrAcked = 0,
     allNLEntriesListed = 0,
     allWLEntriesListed = 0,
     allBLEntriesListed = 0;
-                
+
 
 int __calWt1Flag = 0;
 int __calWt2Flag = 0;
-                        
+
 int __loadCellMVal = 0;
 int __loadCellCVal = 0;
 
 
 int __calSampleCnt = 0;
 float __calTotal = 0;
-                                         
+
 
 char GW_snsrLogStrBuff[256];
 int GW_snsrLogFileId = -1;
@@ -573,7 +573,7 @@ const GW_sensorInfo_s *GW_locateSensorInfo(unsigned int sensorId)
 unsigned short GW_ntohs(unsigned char *buff_p)
 {
    short u16Val = *buff_p;
-   u16Val = (u16Val << 8) | buff_p[1];  
+   u16Val = (u16Val << 8) | buff_p[1];
    return u16Val;
 }
 
@@ -632,7 +632,7 @@ unsigned int GW_ntohl(unsigned char *buff_p)
 
 
 #ifdef __CYGWIN__
-    
+
 
 /*
  ********************************************************************
@@ -654,12 +654,12 @@ int cfgPort(char *serDevName_p, int baudRate)
     if (serialCntxt_p->serialFd < 0)
     {
         printf("Failed to open serial device <%s> - errno<%d> !!\n",
-               serDevName_p, errno);  
+               serDevName_p, errno);
         return -1;
     }
 
-    // printf("Opened serial device <%s> \n", serDevName_p); 
-#if 0 
+    // printf("Opened serial device <%s> \n", serDevName_p);
+#if 0
     rc = tcgetattr(serialCntxt_p->serialFd, &oldtio); /* save current port settings */
     if (rc < 0)
     {
@@ -705,8 +705,8 @@ int cfgPort(char *serDevName_p, int baudRate)
         printf("\n tcflush() failed !! - rc<%d> \n", rc);
         return -1;
     }
-    
-    tcgetattr(serialCntxt_p->serialFd, &latesttio); 
+
+    tcgetattr(serialCntxt_p->serialFd, &latesttio);
     if (rc < 0)
     {
         printf("\n tcgetattr() failed !! - rc<%d> \n", rc);
@@ -721,8 +721,8 @@ int cfgPort(char *serDevName_p, int baudRate)
 
 
 
-#else 
-                             
+#else
+
 /*
  ********************************************************************
  *
@@ -745,7 +745,7 @@ int cfgPort(char *serDevName_p, int baudRate)
               __FUNCTION__, serDevName_p, errno);
        return -1;
    }
-   
+
    // Zero out port status flags
    if (fcntl(serialCntxt_p->serialFd, F_SETFL, 0) != 0x0)
    {
@@ -767,19 +767,19 @@ int cfgPort(char *serDevName_p, int baudRate)
 
    // Set output mode to 0
    serialCntxt_p->dcb.c_oflag = 0;
- 
+
    serialCntxt_p->dcb.c_lflag &= ~ICANON;  // disable canonical mode
    serialCntxt_p->dcb.c_lflag &= ~ECHO;  // disable echoing of input characters
    serialCntxt_p->dcb.c_lflag &= ~ECHOE;
- 
+
    // Set baud rate
-   serialCntxt_p->baudRate = baudRate;  
+   serialCntxt_p->baudRate = baudRate;
    cfsetispeed(&serialCntxt_p->dcb, serialCntxt_p->baudRate);
    cfsetospeed(&serialCntxt_p->dcb, serialCntxt_p->baudRate);
 
    serialCntxt_p->dcb.c_cc[VTIME] = 0;  // timeout = 0.1 sec
    serialCntxt_p->dcb.c_cc[VMIN] = 1;
- 
+
    if ((tcsetattr(serialCntxt_p->serialFd, TCSANOW, &(serialCntxt_p->dcb))) != 0)
    {
        printf("\ntcsetattr(%s) failed !! - errno<%d> \n",
@@ -809,14 +809,14 @@ int cfgPort(char *serDevName_p, int baudRate)
 int readTCPPort(unsigned char *buff_p, unsigned int len)
 {
    int rdLen, readLeft = len, totRead = 0;
-   
+
    while (readLeft > 0)
    {
       /*
        * The recv() call is normally used only on a connected socket (see connect(2)).
-       */ 
+       */
       rdLen = recv(GW_cidSockFd, buff_p + totRead, readLeft, 0);
-       
+
       if (verbose)
           printf("\n<%s> rdLen<%d> \n", __FUNCTION__, rdLen);
 
@@ -854,7 +854,7 @@ int readPort(unsigned char *buff_p, unsigned int len)
    while (readLeft > 0)
    {
       rdLen = read(uart_cntxt.serialFd, buff_p + totRead, readLeft);
-      
+
       if (verbose)
           printf("\n<%s> rdLen<%d> \n", __FUNCTION__, rdLen);
 
@@ -919,7 +919,7 @@ int readPortTmo(unsigned char *buff_p, unsigned int len, int timeOutInMilliSecs)
 }
 
 
-       
+
 /*
  ********************************************************************
  *
@@ -935,12 +935,12 @@ int writeTCPPort(unsigned char *buff_p, int cnt)
    while (bytesLeft > 0)
    {
       /*
-       * The send() call may be used only when the socket is in a connected state 
-       * (so that the intended recipient is known). The only difference between send() 
-       * and write(2) is the presence of flags. 
-       * No indication of failure to deliver is implicit in a send(). Locally detected 
+       * The send() call may be used only when the socket is in a connected state
+       * (so that the intended recipient is known). The only difference between send()
+       * and write(2) is the presence of flags.
+       * No indication of failure to deliver is implicit in a send(). Locally detected
        * errors are indicated by a return value of -1.
-       * On success, these calls return the number of characters sent. On error, -1 is 
+       * On success, these calls return the number of characters sent. On error, -1 is
        * returned, and errno is set appropriately.
        */
       rc = send(GW_cidSockFd, buff_p + bytesWritten, bytesLeft, 0);
@@ -969,12 +969,12 @@ int writeTCPPort(unsigned char *buff_p, int cnt)
 int writePort(unsigned char *buff_p, unsigned int cnt)
 {
    int rc, bytesLeft = cnt, bytesWritten = 0;
-    
+
    // printf("\n<%s> cnt<%d> \n", __FUNCTION__, cnt);
-   
+
    if (GW_cidSockFd >= 0)
        return writeTCPPort(buff_p, cnt);
- 
+
    while (bytesLeft > 0)
    {
       rc = write(uart_cntxt.serialFd, buff_p + bytesWritten, bytesLeft);
@@ -989,11 +989,11 @@ int writePort(unsigned char *buff_p, unsigned int cnt)
 
    return 1;
 }
-   
+
 
 UC_FU_cntxt_s  UC_FU_cntxt;
-                
-                             
+
+
 
 /*
  ********************************************************************
@@ -1009,7 +1009,7 @@ int UC_FU_buildSendImagePage(void)
    FW_segInfo_s *seg_p = UC_FU_cntxt.segList + UC_FU_cntxt.currSegIdx;
 
    printf("<%s> segIdx<%u/%u> / pageIdx<%u/%u> \n",
-          __FUNCTION__, 
+          __FUNCTION__,
           UC_FU_cntxt.currSegIdx, UC_FU_cntxt.segCnt,
           UC_FU_cntxt.currPageIdx, seg_p->pageCnt);
 
@@ -1025,11 +1025,11 @@ int UC_FU_buildSendImagePage(void)
     * Rest of the bytes contain "page sz" number of bytes of
     * page data (except for the last page in a segment).
     */
-   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN 
+   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + FU_PAGE_MSG_SEG_IDX_PAGE_IDX_FIELD_LEN
              + pageSz;
-   
+
    if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
        pyldLen -= LPWMN_MAC_SHORT_ADDR_LEN;
 
@@ -1044,7 +1044,7 @@ int UC_FU_buildSendImagePage(void)
    if (UC_FU_cntxt.shortAddr != LPWMN_COORD_SHORT_ADDR)
    {
        GW_htons(pyld_p, UC_FU_cntxt.shortAddr);
-       off = LPWMN_MAC_SHORT_ADDR_LEN;  
+       off = LPWMN_MAC_SHORT_ADDR_LEN;
    }
 
    pyld_p[off] = DIS_MSG_TYPE_UC_FU_IMAGE_PAGE;
@@ -1052,7 +1052,7 @@ int UC_FU_buildSendImagePage(void)
 
    {
       unsigned int u16Idx, segOff;
-  
+
       u16Idx = UC_FU_cntxt.currSegIdx;
       u16Idx <<= UC_FU_PAGE_MSG_SEG_IDX_FIELD_SHIFT;
       u16Idx |= UC_FU_cntxt.currPageIdx;
@@ -1061,12 +1061,12 @@ int UC_FU_buildSendImagePage(void)
 
       off += FU_PAGE_MSG_SEG_IDX_PAGE_IDX_FIELD_LEN;
 
-      memcpy(pyld_p + off, 
+      memcpy(pyld_p + off,
              seg_p->segBuff_p + (UC_FU_cntxt.currPageIdx * FW_UPG_DFLT_PAGE_SZ),
              pageSz);
-      
+
       off += pageSz;
-   } 
+   }
 
    if (off != pyldLen)
    {
@@ -1096,15 +1096,15 @@ int UC_FU_buildSendImagePage(void)
            // return 255;
            return 1;
        }
-      
+
        if (verbose)
            printf("Header acked \n");
-   
+
        // Send payload
        rc = writePort(pyld_p, pyldLen);
        if (rc != 1)
        {
-           printf("<%s> writePort(%d) failed !! \n", 
+           printf("<%s> writePort(%d) failed !! \n",
                   __FUNCTION__, pyldLen);
            UC_FU_cntxt.nextEvt = UC_FU_EVT_GW_COMM_ERR;
            return 255;
@@ -1134,13 +1134,13 @@ int UC_FU_buildSendInit1Msg(void)
 
    UC_FU_cntxt.txTryCnt = 0;
 
-   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN 
+   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + DIS_TLV_HDR_SZ    // DIS_TLV_TYPE_UC_FU_SESSION_PARAMS
-             + DIS_FU_PAGE_SZ_TLV_SZ  
+             + DIS_FU_PAGE_SZ_TLV_SZ
              + DIS_TIME_STAMP_TLV_SZ
              + DIS_TLV_HDR_SZ;   // DIS_TLV_TYPE_FW_SEG_LIST
-  
+
    if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
        pyldLen -= LPWMN_MAC_SHORT_ADDR_LEN;
 
@@ -1162,7 +1162,7 @@ int UC_FU_buildSendInit1Msg(void)
    if (UC_FU_cntxt.shortAddr != LPWMN_COORD_SHORT_ADDR)
    {
        GW_htons(pyld_p, UC_FU_cntxt.shortAddr);
-       off = LPWMN_MAC_SHORT_ADDR_LEN;  
+       off = LPWMN_MAC_SHORT_ADDR_LEN;
    }
 
    pyld_p[off] = DIS_MSG_TYPE_UC_FU_INIT_1;
@@ -1177,19 +1177,19 @@ int UC_FU_buildSendInit1Msg(void)
    pyld_p[off ++] = DIS_TLV_TYPE_FU_PAGE_SZ;
    pyld_p[off ++] = 1;
    pyld_p[off ++] = FW_UPG_DFLT_PAGE_SZ;
-   
-   
+
+
    time(&currTime);
-   
+
    pyld_p[off ++] = DIS_TLV_TYPE_TIME_STAMP;
    pyld_p[off ++] = DIS_TIME_STAMP_TLV_VAL_LEN;
    GW_htonl(pyld_p + off, *((unsigned int *)&currTime));
 #if 0
-   printf("\n %u 0x%x 0x%x 0x%x 0x%x \n", 
+   printf("\n %u 0x%x 0x%x 0x%x 0x%x \n",
           (unsigned int)currTime, pyld_p[off], pyld_p[off + 1], pyld_p[off + 2], pyld_p[off + 3]);
 #endif
    off += DIS_TIME_STAMP_TLV_VAL_LEN;
-   
+
    pyld_p[off ++] = DIS_TLV_TYPE_FW_SEG_LIST;
    pyld_p[off ++] = (segInfoLen * segCnt);
 
@@ -1234,15 +1234,15 @@ int UC_FU_buildSendInit1Msg(void)
            UC_FU_cntxt.txTryCnt ++;
            return 1;
        }
-      
+
        if (verbose)
            printf("Header acked \n");
-   
+
        // Send payload
        rc = writePort(pyld_p, pyldLen);
        if (rc != 1)
        {
-           printf("<%s> writePort(%d) failed !! \n", 
+           printf("<%s> writePort(%d) failed !! \n",
                   __FUNCTION__, pyldLen);
            return 255;
        }
@@ -1250,17 +1250,17 @@ int UC_FU_buildSendInit1Msg(void)
        printf("<%s> Request sent ..... \n", __FUNCTION__);
 
        printf("<%s> Request sent. Waiting for response ..... \n", __FUNCTION__);
-                      
+
        expDisMsgType = DIS_MSG_TYPE_NODE_UC_FU_MODULE_INFO;
        expDisMsgSrcShortAddr = UC_FU_cntxt.shortAddr;
-       
+
        hdrType = LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE;
        if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
            hdrType = LPWMN_GW_MSG_TYPE_COORD_FU;
-   
+
        rc = GW_readSerIntf(hdrType, 3600);
        if (rc == 0)
-       { 
+       {
            rc = 1;
            break;
        }
@@ -1268,7 +1268,7 @@ int UC_FU_buildSendInit1Msg(void)
        {
            // timed out - no response !!
 
-           printf("<%s> Timed out .... <%u/%u>\n", 
+           printf("<%s> Timed out .... <%u/%u>\n",
                   __FUNCTION__, UC_FU_cntxt.txTryCnt, FW_UPG_MAX_TX_ATTEMPT_CNT);
 
            UC_FU_cntxt.txTryCnt ++;
@@ -1284,7 +1284,7 @@ int UC_FU_buildSendInit1Msg(void)
            else
            {
                printf("<%s> No response to UC_FU message from node <%05u> - retrying <%u/%u> !! \n",
-                      __FUNCTION__, UC_FU_cntxt.shortAddr, 
+                      __FUNCTION__, UC_FU_cntxt.shortAddr,
                       UC_FU_cntxt.txTryCnt + 1, FW_UPG_MAX_TX_ATTEMPT_CNT);
            }
        }
@@ -1309,16 +1309,16 @@ int UC_FU_buildSendInit2Msg(void)
 
    UC_FU_cntxt.txTryCnt = 0;
 
-   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN 
+   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + DIS_TLV_HDR_SZ    // DIS_TLV_TYPE_UC_FU_SESSION_PARAMS
              + DIS_TLV_HDR_SZ;   // DIS_TLV_TYPE_FW_SEG_LIST
-   
+
    if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
        pyldLen -= LPWMN_MAC_SHORT_ADDR_LEN;
-  
+
    segInfoLen = DIS_TLV_HDR_SZ // DIS_TLV_TYPE_FW_SEG_INFO
-                + DIS_FW_SEG_LEN_TLV_SZ              // DIS_TLV_TYPE_FW_SEG_LEN          
+                + DIS_FW_SEG_LEN_TLV_SZ              // DIS_TLV_TYPE_FW_SEG_LEN
                 + DIS_FW_SEG_CRC_TLV_SZ;             // DIS_TLV_TYPE_FW_SEG_CRC
 
    pyldLen += (segInfoLen * segCnt);
@@ -1336,7 +1336,7 @@ int UC_FU_buildSendInit2Msg(void)
    if (UC_FU_cntxt.shortAddr != LPWMN_COORD_SHORT_ADDR)
    {
        GW_htons(pyld_p, UC_FU_cntxt.shortAddr);
-       off = LPWMN_MAC_SHORT_ADDR_LEN;  
+       off = LPWMN_MAC_SHORT_ADDR_LEN;
    }
 
    pyld_p[off] = DIS_MSG_TYPE_UC_FU_INIT_2;
@@ -1345,7 +1345,7 @@ int UC_FU_buildSendInit2Msg(void)
    pyld_p[off ++] = DIS_TLV_TYPE_UC_FU_SESSION_PARAMS;
    pyld_p[off ++] = DIS_TLV_HDR_SZ
                     + (segInfoLen * segCnt);
-   
+
    pyld_p[off ++] = DIS_TLV_TYPE_FW_SEG_LIST;
    pyld_p[off ++] = (segInfoLen * segCnt);
 
@@ -1395,15 +1395,15 @@ int UC_FU_buildSendInit2Msg(void)
            UC_FU_cntxt.txTryCnt ++;
            return 1;
        }
-      
+
        if (verbose)
            printf("Header acked \n");
-   
+
        // Send payload
        rc = writePort(pyld_p, pyldLen);
        if (rc != 1)
        {
-           printf("<%s> writePort(%d) failed !! \n", 
+           printf("<%s> writePort(%d) failed !! \n",
                   __FUNCTION__, pyldLen);
            return 255;
        }
@@ -1411,17 +1411,17 @@ int UC_FU_buildSendInit2Msg(void)
        printf("<%s> Request sent ..... \n", __FUNCTION__);
 
        printf("<%s> Request sent. Waiting for response ..... \n", __FUNCTION__);
-                      
+
        expDisMsgType = DIS_MSG_TYPE_NODE_UC_FU_MODULE_INFO;
        expDisMsgSrcShortAddr = UC_FU_cntxt.shortAddr;
-        
+
        hdrType = LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE;
        if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
            hdrType = LPWMN_GW_MSG_TYPE_COORD_FU;
-   
+
        rc = GW_readSerIntf(hdrType, 3);
        if (rc == 0)
-       { 
+       {
            rc = 1;
            break;
        }
@@ -1429,7 +1429,7 @@ int UC_FU_buildSendInit2Msg(void)
        {
            // timed out - no response !!
 
-           printf("<%s> Timed out .... <%u/%u>\n", 
+           printf("<%s> Timed out .... <%u/%u>\n",
                   __FUNCTION__, UC_FU_cntxt.txTryCnt, FW_UPG_MAX_TX_ATTEMPT_CNT);
 
            UC_FU_cntxt.txTryCnt ++;
@@ -1473,22 +1473,22 @@ void UC_FU_sendNextPage(void)
        unsigned char hdrType = LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE;
 
        // Page Sent ...
-       
+
        expDisMsgType = DIS_MSG_TYPE_NODE_UC_FU_MODULE_INFO;
        expDisMsgSrcShortAddr = UC_FU_cntxt.shortAddr;
 
        UC_FU_cntxt.currState = UC_FU_STATE_IMAGE_PAGE_SENT;
-   
+
        if (UC_FU_cntxt.currPageIdx == UC_FU_cntxt.segList[UC_FU_cntxt.currSegIdx].pageCnt - 1)
-       { 
+       {
            respTmo = 60;
-           printf("<%s> will wait for %u seconds for response \n", 
+           printf("<%s> will wait for %u seconds for response \n",
                   __FUNCTION__, respTmo);
        }
-       
+
        if (UC_FU_cntxt.shortAddr == LPWMN_COORD_SHORT_ADDR)
            hdrType = LPWMN_GW_MSG_TYPE_COORD_FU;
-                                  
+
        rc = GW_readSerIntf(hdrType, respTmo);
        if (rc > 0)
        {
@@ -1504,7 +1504,7 @@ void UC_FU_sendNextPage(void)
    }
    else
        UC_FU_cntxt.currState = UC_FU_STATE_ERROR;
-   
+
    printf("<%s> Exit ... \n", __FUNCTION__);
 
    return;
@@ -1532,14 +1532,14 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                 break;
             }
             break;
-                                     
+
       case UC_FU_EVT_NO_RESP_FROM_NODE:
            {
               switch (UC_FU_cntxt.currState)
               {
                  case UC_FU_STATE_IMAGE_PAGE_SENT:
                       {
-                          printf("<%s> Timed out .... <%u/%u>\n", 
+                          printf("<%s> Timed out .... <%u/%u>\n",
                                  __FUNCTION__, UC_FU_cntxt.txTryCnt, FW_UPG_MAX_TX_ATTEMPT_CNT);
 
                           UC_FU_cntxt.txTryCnt ++;
@@ -1554,7 +1554,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                           else
                           {
                               printf("<%s> No response to PAGE message from node <%05u> - retrying <%u/%u> !! \n",
-                                     __FUNCTION__, UC_FU_cntxt.shortAddr, UC_FU_cntxt.txTryCnt + 1, 
+                                     __FUNCTION__, UC_FU_cntxt.shortAddr, UC_FU_cntxt.txTryCnt + 1,
                                      FW_UPG_MAX_TX_ATTEMPT_CNT);
                               UC_FU_sendNextPage();
                           }
@@ -1591,7 +1591,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                              FW_segInfo_s *seg_p = UC_FU_cntxt.segList + UC_FU_cntxt.currSegIdx;
                              int expSegIdx = UC_FU_cntxt.currSegIdx;
                              int expPageIdx;
-                                 
+
                              if (UC_FU_cntxt.currPageIdx == seg_p->pageCnt - 1)
                              {
                                  expSegIdx ++;
@@ -1618,7 +1618,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                                  if (expSegIdx == UC_FU_cntxt.lastResp.segIdx
                                      && expPageIdx == UC_FU_cntxt.lastResp.pageIdx)
                                  {
-                                     unsigned char *pageS_p = seg_p->segBuff_p 
+                                     unsigned char *pageS_p = seg_p->segBuff_p
                                                               + (UC_FU_cntxt.currPageIdx*FW_UPG_DFLT_PAGE_SZ);
                                      unsigned int calcGpCRC;
                                      int dataLen = FW_UPG_DFLT_PAGE_SZ;
@@ -1631,7 +1631,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                                      printf("<%s> calc page crc<0x%x> [%p/%u] / rcvd page crc<0x%x> \n",
                                             __FUNCTION__, calcGpCRC, pageS_p, dataLen,
                                             UC_FU_cntxt.lastResp.pageCRC);
-                                                
+
                                      if (UC_FU_cntxt.lastResp.pageCRC == calcGpCRC)
                                      {
                                          printf("<%s> page CRC matches ... \n", __FUNCTION__);
@@ -1667,7 +1667,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
 
                                  printf("<%s> expSegIdx<%u/%u> \n",
                                         __FUNCTION__, expSegIdx, UC_FU_cntxt.segCnt);
-                                      
+
                                  if (expSegIdx == UC_FU_cntxt.segCnt + 1)
                                  {
                                      printf("<%s> Node has received the complete image ... \n", __FUNCTION__);
@@ -1690,7 +1690,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
                          }
 
                          // sleep(2);
-                                         
+
                          UC_FU_cntxt.crcMismatchCnt = 0;
                          UC_FU_sendNextPage();
                       }
@@ -1753,7 +1753,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
             {
                 if (cntxt_p->currState == UC_FU_STATE_INIT)
                 {
-                    // Check node is registered or not 
+                    // Check node is registered or not
                     cntxt_p->currState = UC_FU_STATE_CHECK_NODE_REGN;
                 }
             }
@@ -1766,7 +1766,7 @@ void UC_FU_evtProc(UC_FU_cntxt_s *cntxt_p,
             break;
    }
 }
-                
+
 
 /*
  ********************************************************************
@@ -1784,32 +1784,32 @@ int GW_startUcProc(unsigned short shortAddr)
    UC_FU_cntxt.currState = UC_FU_STATE_INIT;
    UC_FU_cntxt.segCnt = FW_segCnt;
    memcpy(UC_FU_cntxt.segList, FW_segList, sizeof(FW_segList));
-     
-   UC_FU_cntxt.nextEvt = UC_FU_EVT_START; 
+
+   UC_FU_cntxt.nextEvt = UC_FU_EVT_START;
 
    do
    {
       UC_FU_evtProc(&UC_FU_cntxt, UC_FU_cntxt.nextEvt);
-      
+
       if (UC_FU_cntxt.nextEvt == UC_FU_EVT_SYS_ERR)
-      { 
+      {
           printf("Gateway comm error !! - quitting \n");
           break;
       }
- 
+
       if (UC_FU_cntxt.nextEvt == UC_FU_EVT_GW_COMM_ERR)
-      { 
+      {
           printf("Gateway comm error !! - quitting \n");
           break;
       }
 
       if (UC_FU_cntxt.nextEvt == UC_FU_EVT_RCVD_MALFORMED_MSG)
-      { 
+      {
           printf("Malformed message received !! - quitting \n");
           UC_FU_sendNextPage();
           // break;
       }
- 
+
    } while (UC_FU_cntxt.currState != UC_FU_STATE_DONE
             && UC_FU_cntxt.currState != UC_FU_STATE_ERROR);
 }
@@ -1827,7 +1827,7 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
 {
    int idx, idy, error = 0, FW_segIdx = -1;
    int segStartAddr, segStart = 0;
-           
+
    FW_segCnt = 0;
    memset(&FW_segList, 0, sizeof(FW_segList));
 
@@ -1855,7 +1855,7 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
 
        if (buff_p[idx] == '\r')
            continue;
-       
+
        if (buff_p[idx] == '\n')
            continue;
 
@@ -1879,12 +1879,12 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
 
            FW_segList[FW_segIdx].segBuff_p[FW_segList[FW_segIdx].segLen] = byte;
            FW_segList[FW_segIdx].segLen ++;
-           
+
            // printf("Seg Idx<%d> / Seg Len <%u> / Byte <0x%x> \n",
            //         FW_segIdx,
            //         FW_segList[FW_segIdx].segLen,
            //         byte);
-           
+
            idx += 2;
        }
 
@@ -1925,7 +1925,7 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
                    break;
                }
 
-               // printf("Segment #%d : start address<0x%x> \n", FW_segCnt, segStartAddr); 
+               // printf("Segment #%d : start address<0x%x> \n", FW_segCnt, segStartAddr);
                idx ++;
                while (buff_p[idx] >= '0' && buff_p[idx] <= '9'
                       || buff_p[idx] >= 'a' && buff_p[idx] <= 'f')
@@ -1952,13 +1952,13 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
            break;
 
    }
-  
+
    printf("\n");
- 
-   printf("-------------------------------------------------------------- \n"); 
+
+   printf("-------------------------------------------------------------- \n");
 
 
-   printf("-------------------------------------------------------------- \n"); 
+   printf("-------------------------------------------------------------- \n");
 
    if (FW_segCnt < 0)
    {
@@ -1986,7 +1986,7 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
            FW_segInfo_s *seg1_p = &FW_segList[idx];
            FW_segInfo_s *seg2_p = seg1_p + 1;
 
-           // printf("<%s> idy<%u>/idx<%u>/p1<%u>/p2<%u> \n", 
+           // printf("<%s> idy<%u>/idx<%u>/p1<%u>/p2<%u> \n",
            //         __FUNCTION__, idy, idx, seg1_p->pageCnt, seg2_p->pageCnt);
 
            if (seg1_p->pageCnt > seg2_p->pageCnt)
@@ -2011,7 +2011,7 @@ int GW_procFwHexFile(char *buff_p, int fileSize)
 
    return 1;
 }
-                
+
 #define STREAM_MSG_SEQ_FIELD_LEN  4
 
 /*
@@ -2062,16 +2062,16 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
 {
    unsigned char tlvLen1, *buff1_p;
    int rc = 0;
-                                   
+
    UC_FU_cntxt.nextEvt = UC_FU_EVT_RCVD_MALFORMED_MSG;
 
    if (verbose)
        printf("<%s> rcvd dis msg type NODE_UC_FU_MODULE_INFO \n", __FUNCTION__);
-   
+
    if (verbose)
    {
        int idx;
-        
+
        for (idx = 0; idx<pyldLen; idx++)
        {
             if (idx % 8 == 0)
@@ -2081,8 +2081,8 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
        printf("\n");
    }
 
-   rc = TLV_get(buff_p, pyldLen, 
-                DIS_TLV_TYPE_NODE_UC_FU_MODULE_INFO, 
+   rc = TLV_get(buff_p, pyldLen,
+                DIS_TLV_TYPE_NODE_UC_FU_MODULE_INFO,
                 &tlvLen1, &buff1_p);
    if (rc)
    {
@@ -2104,8 +2104,8 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
          printf("\n");
       }
 
-      rc = TLV_get(buff1_p, tlvLen1, 
-                   DIS_TLV_TYPE_UC_FU_STATE, 
+      rc = TLV_get(buff1_p, tlvLen1,
+                   DIS_TLV_TYPE_UC_FU_STATE,
                    &tlvLen2, &buff2_p);
       if (rc)
       {
@@ -2121,8 +2121,8 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
           return 0;
       }
 
-      rc = TLV_get(buff1_p, tlvLen1, 
-                   DIS_TLV_TYPE_UC_FU_RET_CODE, 
+      rc = TLV_get(buff1_p, tlvLen1,
+                   DIS_TLV_TYPE_UC_FU_RET_CODE,
                    &tlvLen2, &buff2_p);
       if (rc)
       {
@@ -2137,8 +2137,8 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
           // UC_FU_cntxt.currState = UC_FU_STATE_ERROR;
           return 0;
       }
-                                        
-      if (verbose) 
+
+      if (verbose)
           printf("state <%u> \n", UC_FU_cntxt.currState);
 
       if (UC_FU_cntxt.currState == UC_FU_STATE_SENT_IMAGE_SWITCH_REQUEST)
@@ -2151,8 +2151,8 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
 
       if (nodeFUState != UC_FU_NODE_STATE_IDLE)
       {
-          rc = TLV_get(buff1_p, tlvLen1, 
-                       DIS_TLV_TYPE_UC_FU_SEG_IDX, 
+          rc = TLV_get(buff1_p, tlvLen1,
+                       DIS_TLV_TYPE_UC_FU_SEG_IDX,
                        &tlvLen2, &buff2_p);
           if (rc)
           {
@@ -2167,9 +2167,9 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
                      __FUNCTION__);
               return 0;
           }
-                                            
-          rc = TLV_get(buff1_p, tlvLen1, 
-                       DIS_TLV_TYPE_UC_FU_PAGE_IDX, 
+
+          rc = TLV_get(buff1_p, tlvLen1,
+                       DIS_TLV_TYPE_UC_FU_PAGE_IDX,
                        &tlvLen2, &buff2_p);
           if (rc)
           {
@@ -2185,7 +2185,7 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
               return 0;
           }
 
-          rc = TLV_get(buff1_p, tlvLen1, 
+          rc = TLV_get(buff1_p, tlvLen1,
                        DIS_TLV_TYPE_UC_FU_PAGE_CRC,
                        &tlvLen2, &buff2_p);
           if (rc)
@@ -2211,9 +2211,9 @@ int GW_ucFuMsgHndlr(unsigned char *buff_p, int pyldLen)
               UC_FU_cntxt.lastResp.pageCRC = pageCRC;
           }
           UC_FU_cntxt.lastResp.rcvd = 1;
-            
+
           UC_FU_cntxt.nextEvt = UC_FU_EVT_RCVD_NODE_FU_MOD_STS;
- 
+
           rc = 1;
       }
       else
@@ -2286,7 +2286,7 @@ void GW_procImageAttrVal(unsigned int attrId, unsigned char *buff2_p)
    }
 
    return;
-}         
+}
 
 
 /*
@@ -2302,13 +2302,13 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
    int rc = 0;
 
    if (verbose)
-       printf("<%s> msgType<0x%x> / pyldLen <%d> / offset <%d> \n", 
+       printf("<%s> msgType<0x%x> / pyldLen <%d> / offset <%d> \n",
               __FUNCTION__, currMsgType, pyldLen,  offset);
 
    if (verbose)
    {
        int idx;
-        
+
        for (idx = 0; idx<pyldLen; idx++)
        {
             if (idx % 8 == 0)
@@ -2322,14 +2322,14 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
    {
       case LPWMN_GW_MSG_TYPE_EVENT:
             {
-              rc = GW_processEvt(buff_p + offset, pyldLen); 
+              rc = GW_processEvt(buff_p + offset, pyldLen);
             }
             break;
 
       case LPWMN_GW_MSG_TYPE_RELAY_TO_NODE:
            {
               buff_p += offset;
-              
+
               if (pyldLen >= 2)
               {
                   unsigned short rslt = GW_ntohs(buff_p);
@@ -2348,18 +2348,18 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
       case LPWMN_GW_MSG_TYPE_COORD_FU:
            {
               buff_p += offset;
-               
+
               if (verbose)
                   printf("<%s> rcvd msg type COORD_FU \n", __FUNCTION__);
 
-              if (pyldLen >= DIS_MSG_TYPE_SZ 
+              if (pyldLen >= DIS_MSG_TYPE_SZ
                   && (*buff_p == DIS_MSG_TYPE_NODE_UC_FU_MODULE_INFO))
               {
                   rc = GW_ucFuMsgHndlr(buff_p + DIS_MSG_TYPE_SZ, pyldLen);
               }
               else
               {
-                  printf("<%s> GW msg type and DIS msg type <%u> mismatch !!  \n", 
+                  printf("<%s> GW msg type and DIS msg type <%u> mismatch !!  \n",
                          __FUNCTION__, *buff_p);
               }
            }
@@ -2379,7 +2379,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               {
                   unsigned short u16 = GW_ntohs(buff_p);
                   unsigned char modId, errId;
-                  
+
                   // Error
 
                   modId = (u16 >> 8) & 0xff;
@@ -2425,13 +2425,13 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                   printf("\n");
 
                   rc = 1;
-         
-                  break; 
+
+                  break;
               }
 
-              if (pyldLen >= LPWMN_MAC_SHORT_ADDR_LEN 
+              if (pyldLen >= LPWMN_MAC_SHORT_ADDR_LEN
                              + LPWMN_MAC_EXT_ADDR_LEN
-                             + LPWMN_MSG_RSSI_LEN 
+                             + LPWMN_MSG_RSSI_LEN
                              + LPWMN_MSG_CORR_LQI_LEN)
               {
                   unsigned short srcShortAddr = GW_ntohs(buff_p);
@@ -2440,14 +2440,14 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                   if (verbose)
                       printf("<%s> from node<0x%x> \n", __FUNCTION__, srcShortAddr);
 
-                  buff_p += (LPWMN_MAC_SHORT_ADDR_LEN 
-                             + LPWMN_MAC_EXT_ADDR_LEN 
-                             + LPWMN_MSG_RSSI_LEN 
+                  buff_p += (LPWMN_MAC_SHORT_ADDR_LEN
+                             + LPWMN_MAC_EXT_ADDR_LEN
+                             + LPWMN_MSG_RSSI_LEN
                              + LPWMN_MSG_CORR_LQI_LEN);
 
-                  pyldLen -= (LPWMN_MAC_SHORT_ADDR_LEN 
-                              + LPWMN_MAC_EXT_ADDR_LEN 
-                              + LPWMN_MSG_RSSI_LEN 
+                  pyldLen -= (LPWMN_MAC_SHORT_ADDR_LEN
+                              + LPWMN_MAC_EXT_ADDR_LEN
+                              + LPWMN_MSG_RSSI_LEN
                               + LPWMN_MSG_CORR_LQI_LEN);
 
                   if (verbose)
@@ -2485,21 +2485,21 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                   {
                                      if (verbose)
                                          printf("<%s> rcvd dis msg type GET_NODE_LIST_ATTR_VAL \n", __FUNCTION__);
-                                     
+
                                      if (pyldLen >= DIS_TLV_HDR_SZ)
                                      {
                                          unsigned char tlvLen1, *buff1_p;
                                          rc = TLV_get(buff_p, pyldLen, DIS_TLV_TYPE_LIST_ATTR_INFO, &tlvLen1, &buff1_p);
                                          if (rc == 0)
                                          {
-                                             printf("\n Could not find DIS_TLV_TYPE_LIST_ATTR_INFO  !!\n"); 
-                                         } 
-                                         else 
+                                             printf("\n Could not find DIS_TLV_TYPE_LIST_ATTR_INFO  !!\n");
+                                         }
+                                         else
                                          {
                                              if (verbose)
-                                                 printf("Found DIS_TLV_TYPE_LIST_ATTR_INFO - pyldLen<%d>/tlvLen1<%d> \n", 
+                                                 printf("Found DIS_TLV_TYPE_LIST_ATTR_INFO - pyldLen<%d>/tlvLen1<%d> \n",
                                                         pyldLen, tlvLen1);
-                                             
+
                                              pyldLen -= DIS_TLV_HDR_SZ;
                                              if (pyldLen >= tlvLen1)
                                              {
@@ -2530,7 +2530,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                                              unsigned int attrIdx = GW_ntohs(buff2_p);
 
                                                              printf("AttrIdx<%u>  ", attrIdx);
-                                                         
+
                                                              rc = TLV_get(buff1_p, pyldLen, DIS_TLV_TYPE_ATTR_VAL, &tlvLen2, &buff2_p);
                                                              if (rc == 0)
                                                              {
@@ -2552,7 +2552,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                                                          }
                                                                          break;
 
-                                                                    case AODVL_RT_DISCOVERY_TABLE_ENTRY_ATTR_ID: 
+                                                                    case AODVL_RT_DISCOVERY_TABLE_ENTRY_ATTR_ID:
                                                                          {
                                                                             if (tlvLen2 == (LPWMN_MAC_SHORT_ADDR_LEN * 2))
                                                                             {
@@ -2561,14 +2561,14 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                                                                                 destAddr = (val >> 16) & 0xffff;
                                                                                 srcAddr = (val) & 0xffff;
-                                                                               
+
                                                                                 printf("Dest Addr<%04d> / Src Addr<%04d>\n",
                                                                                        destAddr, srcAddr);
                                                                             }
                                                                          }
                                                                          break;
 
-                                                                    case NWK_ROUTING_TABLE_ENTRY_ATTR_ID: 
+                                                                    case NWK_ROUTING_TABLE_ENTRY_ATTR_ID:
                                                                          {
                                                                             if (tlvLen2 == (LPWMN_MAC_SHORT_ADDR_LEN * 2))
                                                                             {
@@ -2577,7 +2577,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                                                                                 destAddr = (val >> 16) & 0xffff;
                                                                                 nextHop= (val) & 0xffff;
-                                                                               
+
                                                                                 printf("Dest Addr<%04d> / Next Hop<%04d>\n",
                                                                                        destAddr, nextHop);
                                                                             }
@@ -2592,7 +2592,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                                      }
                                                  }
                                              }
-                                         } 
+                                         }
                                      }
                                   }
                                   break;
@@ -2601,7 +2601,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                   {
                                      if (verbose)
                                          printf("<%s> rcvd dis msg type GET_NODE_ATTR_VAL \n", __FUNCTION__);
-                                     
+
                                      if (pyldLen >= DIS_TLV_HDR_SZ)
                                      {
                                          unsigned char tlvLen1, *buff1_p;
@@ -2610,7 +2610,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                          {
                                              printf("\n Could not find DIS_TLV_TYPE_ATTR_INFO  !!\n");
                                          }
-                                         else 
+                                         else
                                          {
                                              if (verbose)
                                                  printf("Found DIS_TLV_TYPE_ATTR_INFO - pyldLen<%d>/tlvLen1<%d> \n", pyldLen, tlvLen1);
@@ -2684,11 +2684,11 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                                                        }
                                                                     }
                                                                     break;
-   
+
                                                                  default:
                                                                     if (attrId == FW_BUILD_DATE_ATTR_ID || attrId  == FW_BUILD_TIME_ATTR_ID)
                                                                     {
-                                                                        printf("%s%s%s \n", 
+                                                                        printf("%s%s%s \n",
                                                                                attrId == FW_BUILD_DATE_ATTR_ID ? "build date <" : "build time <" , buff2_p, ">");
                                                                     }
                                                                     else
@@ -2718,7 +2718,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                                      if (verbose)
                                          printf("<%s> rcvd dis msg type GET_NEIGHBOR_TBL_ENTRY\n", __FUNCTION__);
-                                         
+
                                      rc = TLV_get(buff_p, pyldLen, DIS_TLV_TYPE_MAC_NEIGHBOR_TBL_ENTRY, &tlvLen1, &buff1_p);
                                      if (rc == 0)
                                      {
@@ -2830,7 +2830,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                                      if (verbose)
                                          printf("<%s> rcvd dis msg type GET_NEIGHBOR_TBL_ENTRY\n", __FUNCTION__);
-                                         
+
                                      rc = TLV_get(buff_p, pyldLen, DIS_TLV_TYPE_MAC_NEIGHBOR_TBL_ENTRY, &tlvLen1, &buff1_p);
                                      if (rc == 0)
                                      {
@@ -2960,15 +2960,15 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                              case DIS_MSG_TYPE_NODE_BCN_REQ_HANDLING_CFG:
                                   {
-                                   
+
                                   }
                                   break;
-                             
+
                              case DIS_MSG_TYPE_GET_GPIO_PORT_OP_STATE:
                                   {
                                      if (verbose)
                                          printf("<%s> rcvd dis msg type GET_GPIO_PORT_OP_STATE \n", __FUNCTION__);
-                                   
+
                                      if (pyldLen > DIS_TLV_HDR_SZ)
                                      {
                                          unsigned char tlvLen1, *buff1_p;
@@ -2988,7 +2988,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                              while (pyldLen > 0)
                                              {
                                                  unsigned char tlvLen2, *buff2_p;
-                                                 
+
                                                  rc = TLV_get(buff1_p, tlvLen1, DIS_TLV_TYPE_GPIO_PORT_INFO, &tlvLen2, &buff2_p);
                                                  if (rc == 0)
                                                  {
@@ -2997,13 +2997,13 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                                                  else
                                                  {
                                                      unsigned char tlvLen3, *buff3_p, *buff4_p;
-                                            
+
                                                      rc = TLV_get(buff2_p, tlvLen2, DIS_TLV_TYPE_GPIO_PORT_ID, &tlvLen3, &buff3_p);
                                                      if (rc)
                                                      {
                                                          rc = TLV_get(buff2_p, tlvLen2, DIS_TLV_TYPE_GPIO_PORT_OP_STATE, &tlvLen3, &buff4_p);
                                                          if (rc)
-                                                         { 
+                                                         {
                                                              int idx;
                                                              printf("Port<%u>  ", *(buff3_p) + 1, *(buff4_p));
                                                              for (idx=0; idx<8; idx++)
@@ -3015,7 +3015,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
 
                                                  pyldLen -= (tlvLen2 + DIS_TLV_HDR_SZ);
                                                  buff1_p += (tlvLen2 + DIS_TLV_HDR_SZ);
-                                             } 
+                                             }
                                          }
                                      }
                                   }
@@ -3134,8 +3134,8 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                       || GW_nodeListReqType == ALL_NODES_LIST)
                   {
                        printf("Node Idx <%03d> / short addr <%05u> / parent <%05u> / ext addr <%02x",
-                              GW_ntohs(b_p), 
-                              GW_ntohs(b_p + 2), 
+                              GW_ntohs(b_p),
+                              GW_ntohs(b_p + 2),
                               GW_ntohs(b_p + 4), *(b_p + 6));
                        for (idx=1; idx<LPWMN_MAC_EXT_ADDR_LEN; idx++)
                             printf(":%02x", b_p[6 + idx]);
@@ -3173,7 +3173,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
            break;
 
       case LPWMN_GW_MSG_TYPE_GET_BCN_REQ_HANDLING_CFG:
-           { 
+           {
               if (pyldLen == 0x1)
               {
                   if (buff_p[offset] == 0x0)
@@ -3186,7 +3186,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
            break;
 
       case LPWMN_GW_MSG_TYPE_GET_NWK_JOIN_CTRL_STATE:
-           { 
+           {
               if (pyldLen == 0x1)
               {
                   if (buff_p[offset] == 0x0)
@@ -3233,7 +3233,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                     if (GW_coordPendingAttrId == CC1120_AGC_CS_THR_ATTR_ID)
                         printf("%d \n", *((char *)(buff_p + offset)));
                     else
-                        printf("%u / 0x%x \n", 
+                        printf("%u / 0x%x \n",
                                *(buff_p + offset),
                                *(buff_p + offset));
                     break;
@@ -3244,7 +3244,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                         short freqOff = (short)GW_ntohs(buff_p + offset);
                         printf("%d\n", (int)freqOff);
                     }
-                    else   
+                    else
                         printf("%u / 0x%x\n", GW_ntohs(buff_p + offset), GW_ntohs(buff_p + offset));
                     break;
 
@@ -3252,8 +3252,8 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                     switch (GW_coordPendingAttrId)
                     {
                        case FU_IMAGE_STORE_IMAGE_FLAGS_ATTR_ID:
-                            { 
-                               // Reverse byte order 
+                            {
+                               // Reverse byte order
                                unsigned char temp[4], idx;
                                for (idx=0; idx<pyldLen; idx++)
                                     temp[idx] = buff_p[offset + pyldLen - idx - 1];
@@ -3268,7 +3268,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                             break;
 
                        default:
-                            printf("AttrVal<%u / 0x%x> \n", 
+                            printf("AttrVal<%u / 0x%x> \n",
                                    GW_ntohl(buff_p + offset),
                                    GW_ntohl(buff_p + offset));
                             break;
@@ -3278,7 +3278,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                  default:
                     if (GW_coordPendingAttrId == FW_BUILD_DATE_ATTR_ID || GW_coordPendingAttrId == FW_BUILD_TIME_ATTR_ID)
                     {
-                        printf("%s%s%s \n", 
+                        printf("%s%s%s \n",
                                GW_coordPendingAttrId == FW_BUILD_DATE_ATTR_ID ? "build date <" : "build time <" , buff_p + offset, ">");
                     }
                     else
@@ -3302,7 +3302,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
-      
+
       case LPWMN_GW_MSG_TYPE_GET_RADIO_BAUD_RATE:
            {
               if (pyldLen == LPWMN_GW_MSG_RADIO_BAUD_RATE_FIELD_LEN)
@@ -3313,7 +3313,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
- 
+
       case LPWMN_GW_MSG_TYPE_GET_RADIO_TX_PWR:
            {
               if (pyldLen == LPWMN_GW_MSG_RADIO_TX_PWR_FIELD_LEN)
@@ -3326,7 +3326,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
- 
+
       case LPWMN_GW_MSG_TYPE_GET_RADIO_PART_NR:
            {
               printf("%s\n", buff_p + offset);
@@ -3341,7 +3341,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
- 
+
       case LPWMN_GW_MSG_TYPE_GET_NWK_COORD_EXT_ADDR:
            {
               if (pyldLen == LPWMN_MAC_EXT_ADDR_LEN)
@@ -3366,7 +3366,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
-   
+
       case LPWMN_GW_MSG_TYPE_PHOTON_GET_IPV4_ADDR:
       case LPWMN_GW_MSG_TYPE_PHOTON_GET_IPV4_MASK:
       case LPWMN_GW_MSG_TYPE_PHOTON_GET_IP_GW_IPV4_ADDR:
@@ -3383,9 +3383,9 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
-   
+
       case LPWMN_GW_MSG_TYPE_ELECTRON_GET_BATT_VOLTAGE:
-           { 
+           {
               if (pyldLen == 4)
               {
                   unsigned int battV = GW_ntohl(buff_p + offset);
@@ -3396,9 +3396,9 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
-   
+
       case LPWMN_GW_MSG_TYPE_ELECTRON_GET_BATT_SOC:
-           { 
+           {
               if (pyldLen == 4)
               {
                   unsigned int soc = GW_ntohl(buff_p + offset);
@@ -3410,9 +3410,9 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
            }
            break;
 
-      case LPWMN_GW_MSG_TYPE_ELECTRON_GET_CELLULAR_CONN_STATE: 
+      case LPWMN_GW_MSG_TYPE_ELECTRON_GET_CELLULAR_CONN_STATE:
       case LPWMN_GW_MSG_TYPE_ELECTRON_GET_CLOUD_CONN_STATE:
-           { 
+           {
               if (pyldLen == 1)
                   printf("%d \n", (*(buff_p + offset)));
               rc = 1;
@@ -3422,7 +3422,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
       case LPWMN_GW_MSG_TYPE_TX_TO_CLOUD_MSG_CNT:
       case LPWMN_GW_MSG_TYPE_RX_FROM_CLOUD_MSG_CNT:
       case LPWMN_GW_MSG_TYPE_MSG_TO_CLOUD_DROPPED_CNT:
-           { 
+           {
               if (pyldLen == 4)
               {
                   unsigned int count = GW_ntohl(buff_p + offset);
@@ -3433,7 +3433,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
            break;
 
       case LPWMN_GW_MSG_TYPE_ELECTRON_GET_RADIO_RSSI:
-           { 
+           {
               if (pyldLen == 4)
               {
                   int rssi = (int)GW_ntohl(buff_p + offset);
@@ -3478,7 +3478,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
               rc = 1;
            }
            break;
-     
+
       case LPWMN_GW_MSG_TYPE_NODE_CNT_REQ:
            {
               if (pyldLen == 2)
@@ -3497,25 +3497,25 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                   short idx, minRSSI, maxRSSI, avgRSSI, csFlag  = 0;
                   unsigned short u16Val;
 
-                  u16Val = GW_ntohs(buff_p + offset); 
+                  u16Val = GW_ntohs(buff_p + offset);
                   offset += 2;
                   minRSSI = (signed short)u16Val;
- 
+
                   u16Val = GW_ntohs(buff_p + offset);
                   offset += 2;
                   maxRSSI = (signed short)u16Val;
-                  
+
                   u16Val = GW_ntohs(buff_p + offset);
                   offset += 2;
                   avgRSSI = (signed short)u16Val;
 
                   if (pyldLen == 25)
                   {
-                      csFlag = *(buff_p + offset); 
+                      csFlag = *(buff_p + offset);
                       offset ++;
                   }
 
-                  if (minRSSI == maxRSSI) 
+                  if (minRSSI == maxRSSI)
                   {
                       printf("RSSI <%d> / CS <%c> \n", minRSSI, (csFlag > 0) ? 'y' : 'n');
                       rc = 1;
@@ -3528,7 +3528,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                   for (idx=0; idx<3; idx++)
                   {
                        short start, stop, perc;
-                       
+
                        u16Val = GW_ntohs(buff_p + offset);
                        offset += 2;
                        start = (signed short)u16Val;
@@ -3545,7 +3545,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                   }
               }
               rc = 1;
-           } 
+           }
            break;
 
       case LPWMN_GW_MSG_TYPE_GET_COORD_UP_TIME:
@@ -3575,12 +3575,12 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
                       }
                   }
 
-                  printf("%u Day%c : %u Hour%c : %u Minute%c : %u Second%c \n", 
-                         days, 
+                  printf("%u Day%c : %u Hour%c : %u Minute%c : %u Second%c \n",
+                         days,
                          days == 1 ? ' ' : 's',
-                         hours, 
+                         hours,
                          hours == 1 ? ' ' : 's',
-                         minutes, 
+                         minutes,
                          minutes == 1 ? ' ' : 's',
                          timeInSecs,
                          timeInSecs == 1 ? ' ' : 's');
@@ -3641,7 +3641,7 @@ int GW_processRcvdMsg(unsigned char *buff_p, int offset, int currMsgType, int py
           }
           break;
     }
- 
+
     return rc;
 }
 
@@ -3660,8 +3660,8 @@ int GW_buildSendHdr(int msgType, unsigned char *pyldBuff_p, int pyldLen)
    unsigned short calcCrc16;
    static unsigned char seqNr = 0x0;
    int rc;
-  
-   if (verbose) 
+
+   if (verbose)
        printf("<%s> msgType<0x%x> \n", __FUNCTION__, msgType);
 
    GW_htons(buff_p, msgType);
@@ -3683,15 +3683,15 @@ int GW_buildSendHdr(int msgType, unsigned char *pyldBuff_p, int pyldLen)
    if (pyldLen > 0)
    {
        calcCrc16 = crc16(pyldBuff_p, pyldLen);
-       GW_htons(buff_p, calcCrc16);  // payload crc 
+       GW_htons(buff_p, calcCrc16);  // payload crc
    }
    else
-       GW_htons(buff_p, 0x0);  // no payload 
+       GW_htons(buff_p, 0x0);  // no payload
 
    if (verbose)
    {
        int idx;
-       
+
        printf("\n -------------------------- \n");
 
        for (idx=0; idx<UART_FRAME_HDR_LEN; idx++)
@@ -3707,12 +3707,12 @@ int GW_buildSendHdr(int msgType, unsigned char *pyldBuff_p, int pyldLen)
        rc = 20;
    }
 
-   if (verbose) 
+   if (verbose)
        printf("\nwritePort() done !!\n");
 
    return rc;
 }
-   
+
 
 /*
  ********************************************************************
@@ -3728,14 +3728,14 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
    int currMsgType = 0xffff, done = 0;
    time_t startTime;
 
-   time(&startTime); 
+   time(&startTime);
 
    readLen = UART_FRAME_HDR_PYLD_CRC_FIELD_OFF;
    memset(serRxBuff, 0, sizeof(serRxBuff));
 
    do
    {
-      if (verbose) 
+      if (verbose)
           printf("\noff<%d>/readLen<%d>/totReadLen<%d> \n", off, readLen, totReadLen);
 
       if (tmoSecs > 0)
@@ -3746,7 +3746,7 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
               if (rc == 0)
               {
                   time_t currTime;
-    
+
                   // No data read from port !!
                   time(&currTime);
                   if (currTime - startTime > tmoSecs)
@@ -3774,7 +3774,7 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
 
       switch (totReadLen)
       {
-         case UART_FRAME_HDR_PYLD_CRC_FIELD_OFF: 
+         case UART_FRAME_HDR_PYLD_CRC_FIELD_OFF:
               {
                   int idx;
                   unsigned short calcCrc16, rxdCrc16;
@@ -3791,7 +3791,7 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
                   calcCrc16 = crc16(serRxBuff, UART_FRAME_HDR_HDR_CRC_FIELD_OFF);
                   rxdCrc16 = serRxBuff[UART_FRAME_HDR_HDR_CRC_FIELD_OFF];
                   rxdCrc16 = (rxdCrc16 << 8) + serRxBuff[UART_FRAME_HDR_HDR_CRC_FIELD_OFF + 1];
-      
+
                   if (verbose)
                       printf("\ncalc-crc16<0x%x> rcvd-crc16<0x%x>\n", calcCrc16, rxdCrc16);
 
@@ -3812,7 +3812,7 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
                   currMsgType = (currMsgType << 8) | serRxBuff[UART_FRAME_HDR_MSG_TYPE_FIELD_OFF + 1];
 
                   if (verbose)
-                      printf("\nMessage Type<%d> / Length<%d>", currMsgType, pyldLen);                   
+                      printf("\nMessage Type<%d> / Length<%d>", currMsgType, pyldLen);
 
                   readLen = pyldLen + UART_FRAME_HDR_PYLD_CRC_FIELD_LEN;
               }
@@ -3825,7 +3825,7 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
                       if (GW_processRcvdMsg(serRxBuff, UART_FRAME_HDR_LEN, currMsgType, pyldLen) == 1)
                           done = 1;
                   }
-        
+
                   readLen = UART_FRAME_HDR_PYLD_CRC_FIELD_OFF;
                   memset(serRxBuff, 0, sizeof(serRxBuff));
                   totReadLen = 0;
@@ -3850,8 +3850,8 @@ int GW_readSerIntf(int expMsgType, int tmoSecs)
 
    return rc;
 }
-                
-                
+
+
 
 /*
  ********************************************************************
@@ -3878,11 +3878,11 @@ int GW_bcFFDNoOp(unsigned int hopCnt)
    GW_htons(pyld_p, LPWMN_MESH_LEVEL_BROADCAST_ADDR | hopCnt);
    pyld_p[LPWMN_MAC_SHORT_ADDR_LEN] = DIS_MSG_TYPE_NO_OP;;
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-     
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -3892,26 +3892,26 @@ int GW_bcFFDNoOp(unsigned int hopCnt)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent ..... waiting for transmit confirmation \n");
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 0);
 
    return rc;
 }
-        
+
 
 
 /*
@@ -3943,11 +3943,11 @@ int GW_bcFFDReboot(unsigned int hopCnt, unsigned int delay)
    pyld_p[offset++] = DIS_REBOOT_DELAY_TLV_SZ - DIS_TLV_HDR_SZ;
    GW_htons(pyld_p + offset, delay);
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-     
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -3957,26 +3957,26 @@ int GW_bcFFDReboot(unsigned int hopCnt, unsigned int delay)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent ..... waiting for transmit confirmation \n");
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 0);
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4002,8 +4002,8 @@ int GW_rebootNodeReq(unsigned short shortAddr)
 
    GW_htons(pyld_p, shortAddr);
    pyld_p[LPWMN_MAC_SHORT_ADDR_LEN] = DIS_MSG_TYPE_NODE_REBOOT_REQ;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
@@ -4017,15 +4017,15 @@ int GW_rebootNodeReq(unsigned short shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -4059,7 +4059,7 @@ int GW_rebootCoordReq(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4077,8 +4077,8 @@ int GW_startChannMon(int sampleCnt, int samplingInterval, char extLNAFlag)
    GW_htonl(pyld, sampleCnt);
    GW_htonl(pyld + 4, samplingInterval);
    *(pyld + 8) = (extLNAFlag == 'y' ? 1 : 0);
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_MON_CHANN, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_MON_CHANN,
                         pyld, sizeof(pyld));
    if (rc != 1)
        return rc;
@@ -4092,7 +4092,7 @@ int GW_startChannMon(int sampleCnt, int samplingInterval, char extLNAFlag)
        printf("Header not acked !! \n");
        return 41;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -4105,10 +4105,10 @@ int GW_startChannMon(int sampleCnt, int samplingInterval, char extLNAFlag)
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = 0xff;
    expDisMsgSrcShortAddr = LPWMN_BROADCAST_SHORT_ADDR;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_MON_CHANN, 0);
 
    return rc;
@@ -4135,10 +4135,10 @@ int GW_startCoordReq(void)
        return 5;
    }
 
-   rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_START_COORD, 0); 
+   rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_START_COORD, 0);
 
    return rc;
-} 
+}
 
 /*
  ********************************************************************
@@ -4151,7 +4151,7 @@ int GW_startCoordReq(void)
 int GW_getNodeCntReqHndlr(void)
 {
    int rc;
-   
+
    rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_NODE_CNT_REQ, NULL, 0x0);
    if (rc != 1)
    {
@@ -4159,11 +4159,11 @@ int GW_getNodeCntReqHndlr(void)
        return 5;
    }
 
-   rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_NODE_CNT_REQ, 0); 
+   rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_NODE_CNT_REQ, 0);
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4183,7 +4183,7 @@ int GW_getCoordUpTime(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4202,7 +4202,7 @@ int GW_getCoordFreeMemDescCnt(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4221,7 +4221,7 @@ int GW_getLPWMNIdReqHndlr(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4241,7 +4241,7 @@ int GW_getRadioFreqBand(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4281,7 +4281,7 @@ int GW_getRadioModFmt(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4301,7 +4301,7 @@ int GW_getCoordRadioTxPwr( )
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4361,7 +4361,7 @@ int GW_sendBBOpnRequest(unsigned int opn)
    rc = GW_buildSendHdr(msgType, NULL, 0);
    if (rc != 1)
    {
-       printf("failed !! \n"); 
+       printf("failed !! \n");
        rc = 5;
    }
    else
@@ -4388,12 +4388,12 @@ int GW_setRadioChannReqHndlr(const char *arg_p)
    if (rc != 1 || channNr < 0 || channNr > 31)
    {
        printf("You have entered an invalid channel number !! \n");
-       return 60; 
+       return 60;
    }
 
    GW_htons(pyldBuff, channNr);
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_SET_RADIO_CHANNEL, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_SET_RADIO_CHANNEL,
                         pyldBuff, LPWMN_GW_MSG_RADIO_CHANN_FIELD_LEN);
    if (rc != 1)
        return rc;
@@ -4407,7 +4407,7 @@ int GW_setRadioChannReqHndlr(const char *arg_p)
        printf("Header not acked !! \n");
        return 61;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -4415,14 +4415,14 @@ int GW_setRadioChannReqHndlr(const char *arg_p)
    rc = writePort(pyldBuff, LPWMN_GW_MSG_RADIO_CHANN_FIELD_LEN);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, LPWMN_GW_MSG_RADIO_CHANN_FIELD_LEN);
        return 62;
    }
 
    if (verbose)
        printf("Request sent ... \n");
-       
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_SET_RADIO_CHANNEL, 0);
 
    return rc;
@@ -4443,7 +4443,7 @@ int GW_getBlackListReqHndlr( )
    unsigned char pyldBuff[2];
 
    allBLEntriesListed = 0;
-   
+
    do
    {
       GW_htons(pyldBuff, nodeIdx);
@@ -4479,9 +4479,9 @@ int GW_getBlackListReqHndlr( )
       rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_GET_BLACK_LIST_ENTRY, 0);
       if (rc != 0)
           break;
-                      
+
       if (allBLEntriesListed)
-          break; 
+          break;
 
       nodeCnt ++;
 
@@ -4510,7 +4510,7 @@ int GW_getWhiteListReqHndlr( )
    unsigned char pyldBuff[2];
 
    allWLEntriesListed = 0;
-   
+
    do
    {
       GW_htons(pyldBuff, nodeIdx);
@@ -4546,9 +4546,9 @@ int GW_getWhiteListReqHndlr( )
       rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_GET_WHITE_LIST_ENTRY, 0);
       if (rc != 0)
           break;
-                      
+
       if (allWLEntriesListed)
-          break; 
+          break;
 
       nodeCnt ++;
 
@@ -4599,7 +4599,7 @@ int GW_getNodeListReqHndlr(unsigned char reqType)
           rc = 21;
           break;
       }
-      
+
       if (verbose)
           printf("Header acked \n");
 
@@ -4611,13 +4611,13 @@ int GW_getNodeListReqHndlr(unsigned char reqType)
           printf("<%s> writePort(%d) failed !! \n", __FUNCTION__, pyldLen);
           break;
       }
-       
+
       rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_NODE_LIST_REQ, 0);
       if (rc != 0)
           break;
-                      
+
       if (allNLEntriesListed)
-          break; 
+          break;
 
       nodeCnt ++;
 
@@ -4650,7 +4650,7 @@ int GW_getCoordExtAddrReqHndlr(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4660,7 +4660,7 @@ int GW_getCoordExtAddrReqHndlr(void)
  *
  ********************************************************************
  */
-int GW_getWiFiMACAddr(void) 
+int GW_getWiFiMACAddr(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_GET_MAC_ADDR, NULL, 0);
    if (rc != 1)
@@ -4691,7 +4691,7 @@ int GW_dropSnsrDataReq(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4721,7 +4721,7 @@ int GW_relaySnsrDataReq(void)
  *
  ********************************************************************
  */
-int GW_getWiFiSSID(void) 
+int GW_getWiFiSSID(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_GET_SSID, NULL, 0);
    if (rc != 1)
@@ -4741,7 +4741,7 @@ int GW_getWiFiSSID(void)
  *
  ********************************************************************
  */
-int GW_checkWiFiCreds(void) 
+int GW_checkWiFiCreds(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_HAS_CREDENTIALS, NULL, 0);
    if (rc != 1)
@@ -4761,7 +4761,7 @@ int GW_checkWiFiCreds(void)
  *
  ********************************************************************
  */
-int GW_clearWiFiCreds(void) 
+int GW_clearWiFiCreds(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_CLEAR_ALL_CREDENTIALS, NULL, 0);
    if (rc != 1)
@@ -4782,7 +4782,7 @@ int GW_clearWiFiCreds(void)
  *
  ********************************************************************
  */
-int GW_getWiFiCreds(void) 
+int GW_getWiFiCreds(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_GET_CREDENTIALS, NULL, 0);
    if (rc != 1)
@@ -4802,7 +4802,7 @@ int GW_getWiFiCreds(void)
  *
  ********************************************************************
  */
-int GW_getWiFiIPv4(void) 
+int GW_getWiFiIPv4(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_GET_IPV4_ADDR, NULL, 0);
    if (rc != 1)
@@ -4812,7 +4812,7 @@ int GW_getWiFiIPv4(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4822,7 +4822,7 @@ int GW_getWiFiIPv4(void)
  *
  ********************************************************************
  */
-int GW_get2GIPv4(void) 
+int GW_get2GIPv4(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ELECTRON_GET_IPV4_ADDR, NULL, 0);
    if (rc != 1)
@@ -4850,7 +4850,7 @@ int GW_electronCmdHndlr(int cmdId)
    rc = GW_readSerIntf(cmdId, 0);
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4870,7 +4870,7 @@ int GW_getWiFiGWIPv4(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4880,7 +4880,7 @@ int GW_getWiFiGWIPv4(void)
  *
  ********************************************************************
  */
-int GW_getWiFiIPv4Mask(void) 
+int GW_getWiFiIPv4Mask(void)
 {
    int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_PHOTON_GET_IPV4_MASK, NULL, 0);
    if (rc != 1)
@@ -4890,7 +4890,7 @@ int GW_getWiFiIPv4Mask(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4923,7 +4923,7 @@ int GW_getCoordRadioPartNr(void)
 
    return rc;
 }
-        
+
 
 /*
  ********************************************************************
@@ -4936,7 +4936,7 @@ int GW_getCoordRadioPartNr(void)
 int GW_enableNwkJoins(void)
 {
    int rc;
-  
+
    rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ENABLE_NWK_JOINS, NULL, 0);
    if (rc != 1)
    {
@@ -4990,7 +4990,7 @@ int GW_getNwkJoinCtrlSts( )
 
    return rc;
 }
-                
+
 
 /*
  ********************************************************************
@@ -5005,7 +5005,7 @@ int GW_getNTEntryOnFFD(unsigned int ffdSA, unsigned int nteSA)
    int rc, pyldLen, off = 0;
    unsigned char *pyld_p;
 
-   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ + DIS_SHORT_ADDR_TLV_SZ; 
+   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ + DIS_SHORT_ADDR_TLV_SZ;
 
    pyld_p = (unsigned char *)malloc(pyldLen);
    if (pyld_p == NULL)
@@ -5020,12 +5020,12 @@ int GW_getNTEntryOnFFD(unsigned int ffdSA, unsigned int nteSA)
    pyld_p[off ++] = DIS_TLV_TYPE_SHORT_ADDR;
    pyld_p[off ++] = LPWMN_MAC_SHORT_ADDR_LEN;
    GW_htons(pyld_p + off, nteSA);
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5035,24 +5035,24 @@ int GW_getNTEntryOnFFD(unsigned int ffdSA, unsigned int nteSA)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_GET_NEIGHBOR_TBL_ENTRY;
    expDisMsgSrcShortAddr = ffdSA;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -5072,7 +5072,7 @@ int GW_getRtNextHopOnFFD(unsigned int ffdSA, unsigned int rtToSA)
    int rc, pyldLen, off = 0;
    unsigned char *pyld_p;
 
-   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ + DIS_SHORT_ADDR_TLV_SZ; 
+   pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ + DIS_SHORT_ADDR_TLV_SZ;
 
    pyld_p = (unsigned char *)malloc(pyldLen);
    if (pyld_p == NULL)
@@ -5087,12 +5087,12 @@ int GW_getRtNextHopOnFFD(unsigned int ffdSA, unsigned int rtToSA)
    pyld_p[off ++] = DIS_TLV_TYPE_SHORT_ADDR;
    pyld_p[off ++] = LPWMN_MAC_SHORT_ADDR_LEN;
    GW_htons(pyld_p + off, rtToSA);
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5102,24 +5102,24 @@ int GW_getRtNextHopOnFFD(unsigned int ffdSA, unsigned int rtToSA)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_GET_RT_NEXT_HOP;
    expDisMsgSrcShortAddr = ffdSA;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -5150,12 +5150,12 @@ int GW_getRtNextHopOnCoord(unsigned int shortAddr)
    }
 
    GW_htons(pyld_p, shortAddr);
-    
-   rc = GW_buildSendHdr(LPWMN_MSG_TYPE_GET_RT_NH_ON_COORD, 
+
+   rc = GW_buildSendHdr(LPWMN_MSG_TYPE_GET_RT_NH_ON_COORD,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5165,26 +5165,26 @@ int GW_getRtNextHopOnCoord(unsigned int shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = 0xff;
    expDisMsgSrcShortAddr = LPWMN_BROADCAST_SHORT_ADDR;
-   
+
    rc = GW_readSerIntf(LPWMN_MSG_TYPE_GET_RT_NH_ON_COORD, 0);
-       
+
    return rc;
 }
 
@@ -5197,13 +5197,13 @@ int GW_getRtNextHopOnCoord(unsigned int shortAddr)
  *
  ********************************************************************
  */
-int GW_setNodeAttrVal(unsigned int shortAddr, 
-                       unsigned int attrId, 
+int GW_setNodeAttrVal(unsigned int shortAddr,
+                       unsigned int attrId,
                        int attrVal)
 {
    int rc = 1, pyldLen, off = 0, attrValLen = 0;
    unsigned char *pyld_p;
-  
+
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + DIS_TLV_HDR_SZ
@@ -5219,23 +5219,23 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
       case PLTFRM_TEST_WD_RESET_ATTR_ID:
            attrValLen = 1;
            break;
-    
+
       case RADIO_AFC_FUNCIONALITY_ATTR_ID:
            attrValLen = 1;
            break;
 
-      case 5000: 
+      case 5000:
            attrValLen = 1;
            break;
-            
-      case NM_INTER_SCAN_INTERVAL_SECS_ATTR_ID: 
+
+      case NM_INTER_SCAN_INTERVAL_SECS_ATTR_ID:
            attrValLen = 2;
            break;
-      
+
       case PHY_TX_POWER_ATTR_ID:
            attrValLen = 2;
            break;
-            
+
       case NM_MAX_SCAN_FLR_CNT_TO_RESET_ATTR_ID:
            attrValLen = 1;
            break;
@@ -5267,27 +5267,27 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
            // 1 to 65535
            attrValLen = 2;
            break;
-           
+
       case APP_SNSR_DATA_REPORT_MODE_ATTR_ID:
            attrValLen = 1;
            break;
-      
+
       case WSMS100_SQ_WAVE_FREQUENCY_CFG_ATTR_ID:
            attrValLen = 4;
            break;
-       
+
       case RADIO_TX_TO_RX_TURN_AROUND_DELAY_ATTR_ID:
            attrValLen = 1;
            break;
-            
+
       case APP_MAX_SNSR_DATA_REPORT_INTERVAL_SECS_ATTR_ID:
            attrValLen = 4;
            break;
-            
+
       case APP_SNSR_DATA_REPORT_DELTA_THRESHOLD_ATTR_ID:
            attrValLen = 4;
            break;
-            
+
       case DEV_PULSE_CNTR_RESET_CNTR:
            attrValLen = 4;
            break;
@@ -5296,19 +5296,19 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
            attrValLen = 4;
            break;
 
-      case APP_PIR_SENSOR_ENA_DIS_CTRL_ATTR_ID:  
+      case APP_PIR_SENSOR_ENA_DIS_CTRL_ATTR_ID:
            attrValLen = 1;
            break;
 
-      case APP_VEH_DET_MFS_HPF_DETECTION_ALPHA:  
+      case APP_VEH_DET_MFS_HPF_DETECTION_ALPHA:
            attrValLen = 1;
            break;
 
-      case APP_VEH_DET_MFS_HPF_DETECTION_THRESHOLD:  
+      case APP_VEH_DET_MFS_HPF_DETECTION_THRESHOLD:
            attrValLen = 2;
            break;
 
-      case APP_VEH_DET_MFS_HPF_SETTLING_THRESHOLD:  
+      case APP_VEH_DET_MFS_HPF_SETTLING_THRESHOLD:
            attrValLen = 2;
            break;
 
@@ -5323,7 +5323,7 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
       case MAC_LPWMN_ID_ATTR_ID:
            attrValLen = 2;
            break;
-      
+
       case MESH_TRIGGER_PATH_DISC_ATTR_ID:
            attrValLen = 2;
            break;
@@ -5341,7 +5341,7 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
       case APP_MAG3110_Z_AXIS_BASE_VAL_MFS_ATTR_ID:
            attrValLen = 2;
            break;
-      
+
       case PHY_RAW_BAUD_RATE_ATTR_ID:
            attrValLen = 4;
            break;
@@ -5354,7 +5354,7 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
 
    if (rc == 0)
        return rc;
-           
+
    pyldLen += attrValLen;
 
    pyld_p = (unsigned char *)malloc(pyldLen);
@@ -5391,15 +5391,15 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
 
       default:
           break;
-   } 
+   }
 
    off += attrValLen;
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5409,14 +5409,14 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    if (verbose)
    {
        int idx;
-       
+
        printf("\n -------------------------- \n");
 
        for (idx=0; idx<pyldLen; idx++)
@@ -5424,16 +5424,16 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
 
        printf("\n -------------------------- \n");
    }
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
-     
+
    printf("Request sent...... \n");
 
    // printf("Request sent. Waiting for response ..... \n");
@@ -5451,8 +5451,8 @@ int GW_setNodeAttrVal(unsigned int shortAddr,
  *
  ********************************************************************
  */
-int GW_setCoordAttrVal(unsigned int shortAddr, 
-                       unsigned int attrId, 
+int GW_setCoordAttrVal(unsigned int shortAddr,
+                       unsigned int attrId,
                        int attrVal)
 {
    int rc = 1, pyldLen, off = 0;
@@ -5467,11 +5467,11 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
       case PLTFRM_TEST_WD_RESET_ATTR_ID:
            pyldLen += 1;
            break;
-      
+
       case CC1120_AGC_CS_THR_ATTR_ID:
            pyldLen += 1;
            break;
-      
+
       case RADIO_AFC_FUNCIONALITY_ATTR_ID:
            pyldLen += 1;
            break;
@@ -5503,7 +5503,7 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
            // 1 to 65535
            pyldLen += 2;
            break;
-           
+
       case MAC_NWK_TYPE_ATTR_ID:
            pyldLen += 1;
            break;
@@ -5532,7 +5532,7 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
            pyldLen += 2;
            break;
 
-      case PLTFRM_SET_GPIO_OUTPUT_ATTR_ID: 
+      case PLTFRM_SET_GPIO_OUTPUT_ATTR_ID:
       case PLTFRM_CLEAR_GPIO_OUTPUT_ATTR_ID:
            pyldLen += 2;
            break;
@@ -5565,12 +5565,12 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
       case RADIO_START_CW_UNMOD_TX_TEST_ATTR_ID:
       case RADIO_START_CW_MOD_TX_TEST_ATTR_ID:
       case RADIO_RF_TX_TEST_PA_CFG_ATTR_ID:
-      case PLTFRM_SET_GPIO_OUTPUT_ATTR_ID: 
+      case PLTFRM_SET_GPIO_OUTPUT_ATTR_ID:
       case PLTFRM_CLEAR_GPIO_OUTPUT_ATTR_ID:
       case PHY_TX_POWER_ATTR_ID:
            GW_htons(pyld_p + DIS_ATTR_ID_FIELD_SZ, attrVal);
            break;
-      
+
       case PHY_RAW_BAUD_RATE_ATTR_ID:
            GW_htonl(pyld_p + DIS_ATTR_ID_FIELD_SZ, attrVal);
            break;
@@ -5589,11 +5589,11 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
            break;
    }
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_SET_COORD_ATTR_VAL, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_SET_COORD_ATTR_VAL,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5603,15 +5603,15 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -5642,7 +5642,7 @@ int GW_setCoordAttrVal(unsigned int shortAddr,
 int GW_cfgCoordToDropBcnReqs(void)
 {
    int rc;
-  
+
    rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_CFG_DROP_BCN_REQS, NULL, 0);
    if (rc != 1)
    {
@@ -5654,7 +5654,7 @@ int GW_cfgCoordToDropBcnReqs(void)
 
    return rc;
 }
-                    
+
 
 /*
  ********************************************************************
@@ -5680,8 +5680,8 @@ int GW_cfgNodeToAcceptBcnReqs(unsigned int shortAddr)
 
    GW_htons(pyld_p, shortAddr);
    pyld_p[LPWMN_MAC_SHORT_ADDR_LEN] = DIS_MSG_TYPE_CFG_NODE_ACCEPT_BCN_REQS;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
@@ -5695,15 +5695,15 @@ int GW_cfgNodeToAcceptBcnReqs(unsigned int shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -5738,8 +5738,8 @@ int GW_cfgNodeToDropBcnReqs(unsigned int shortAddr)
 
    GW_htons(pyld_p, shortAddr);
    pyld_p[LPWMN_MAC_SHORT_ADDR_LEN] = DIS_MSG_TYPE_CFG_NODE_DROP_BCN_REQS;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
@@ -5753,15 +5753,15 @@ int GW_cfgNodeToDropBcnReqs(unsigned int shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -5783,7 +5783,7 @@ int GW_cfgNodeToDropBcnReqs(unsigned int shortAddr)
 int GW_cfgCoordToAcceptBcnReqs(void)
 {
    int rc;
-  
+
    rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_CFG_ACCEPT_BCN_REQS, NULL, 0);
    if (rc != 1)
    {
@@ -5795,7 +5795,7 @@ int GW_cfgCoordToAcceptBcnReqs(void)
 
    return rc;
 }
-                    
+
 
 /*
  ********************************************************************
@@ -5807,7 +5807,7 @@ int GW_cfgCoordToAcceptBcnReqs(void)
  */
 int GW_getCoordBcnReqHndlingCfg(void)
 {
-   int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_BCN_REQ_HANDLING_CFG, 
+   int rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_BCN_REQ_HANDLING_CFG,
                             NULL, 0);
    if (rc != 1)
        return 5;
@@ -5816,7 +5816,7 @@ int GW_getCoordBcnReqHndlingCfg(void)
 
    return rc;
 }
-                    
+
 
 /*
  ********************************************************************
@@ -5842,8 +5842,8 @@ int GW_getNodeBcnReqHndlingCfg(unsigned int shortAddr)
 
    GW_htons(pyld_p, shortAddr);
    pyld_p[LPWMN_MAC_SHORT_ADDR_LEN] = DIS_MSG_TYPE_NODE_BCN_REQ_HANDLING_CFG;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
@@ -5857,24 +5857,24 @@ int GW_getNodeBcnReqHndlingCfg(unsigned int shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_NODE_BCN_REQ_HANDLING_CFG;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
 
@@ -5894,9 +5894,9 @@ int GW_getCoordListAttrVal(unsigned int attrId, unsigned int attrIdx)
 {
    int rc = 0, pyldLen, off = 0;
    unsigned char *pyld_p;
-  
+
    // TODO
- 
+
    return rc;
 }
 
@@ -5924,14 +5924,14 @@ int GW_getCoordAttrVal(unsigned int attrId)
    }
 
    GW_htons(pyld_p, attrId);
- 
+
    GW_coordPendingAttrId = attrId;
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_COORD_ATTR_VAL, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_COORD_ATTR_VAL,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -5941,15 +5941,15 @@ int GW_getCoordAttrVal(unsigned int attrId)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -5970,8 +5970,8 @@ int GW_getCoordAttrVal(unsigned int attrId)
  *
  ********************************************************************
  */
-int GW_getNodeListAttrVal(unsigned int shortAddr, 
-                          unsigned int attrId, 
+int GW_getNodeListAttrVal(unsigned int shortAddr,
+                          unsigned int attrId,
                           unsigned int attrIdx)
 {
    int rc, pyldLen, off = 0;
@@ -5983,7 +5983,7 @@ int GW_getNodeListAttrVal(unsigned int shortAddr,
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + DIS_TLV_HDR_SZ
-             + DIS_LIST_ATTR_ID_TLV_SZ 
+             + DIS_LIST_ATTR_ID_TLV_SZ
              + DIS_LIST_ATTR_IDX_TLV_SZ;
 
    pyld_p = (unsigned char *)malloc(pyldLen);
@@ -6003,16 +6003,16 @@ int GW_getNodeListAttrVal(unsigned int shortAddr,
    pyld_p[off ++] = DIS_LIST_ATTR_ID_FIELD_SZ;
    GW_htons(pyld_p + off, attrId);
    off += DIS_LIST_ATTR_ID_FIELD_SZ;
-   
+
    pyld_p[off ++] = DIS_TLV_TYPE_LIST_ATTR_IDX;
    pyld_p[off ++] = DIS_LIST_ATTR_IDX_FIELD_SZ;
    GW_htons(pyld_p + off, attrIdx);
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6022,24 +6022,24 @@ int GW_getNodeListAttrVal(unsigned int shortAddr,
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_GET_LIST_ATTR_VAL;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -6059,7 +6059,7 @@ int GW_sendTraffStatus(unsigned int shortAddr, unsigned char msgType)
 {
    int rc, pyldLen, off = 0;
    unsigned char *pyld_p;
-   
+
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ;
 
@@ -6074,11 +6074,11 @@ int GW_sendTraffStatus(unsigned int shortAddr, unsigned char msgType)
    off = LPWMN_MAC_SHORT_ADDR_LEN;
    pyld_p[off ++] = msgType;
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6088,15 +6088,15 @@ int GW_sendTraffStatus(unsigned int shortAddr, unsigned char msgType)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -6119,7 +6119,7 @@ int GW_getNodeAttrVal(unsigned int shortAddr, unsigned int attrId)
 {
    int rc, pyldLen, off = 0;
    unsigned char *pyld_p;
-   
+
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN
              + DIS_MSG_TYPE_SZ
              + DIS_ATTR_ID_TLV_SZ;
@@ -6138,11 +6138,11 @@ int GW_getNodeAttrVal(unsigned int shortAddr, unsigned int attrId)
    pyld_p[off ++] = DIS_ATTR_ID_FIELD_SZ;
    GW_htons(pyld_p + off, attrId);
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6152,24 +6152,24 @@ int GW_getNodeAttrVal(unsigned int shortAddr, unsigned int attrId)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_GET_ATTR_VAL;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -6207,12 +6207,12 @@ int GW_cfgNodeDataPushInterval(unsigned int shortAddr, unsigned int pi)
    pyld_p[off ++] = DIS_TLV_TYPE_PUSH_INTERVAL;
    pyld_p[off ++] = LPWMN_GW_MSG_NODE_DATA_PUSH_INTERVAL_FIELD_LEN;
    GW_htons(pyld_p + off, pi);
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6222,24 +6222,24 @@ int GW_cfgNodeDataPushInterval(unsigned int shortAddr, unsigned int pi)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent ... \n");
-       
+
    return rc;
 }
-        
+
 /*
  ********************************************************************
  *
@@ -6255,7 +6255,7 @@ int GW_clrBlackList( )
        return 5;
    printf("Request sent ... \n");
 }
-        
+
 
 /*
  ********************************************************************
@@ -6271,13 +6271,13 @@ int GW_delNodeFromBlackList(const char *arg_p)
    unsigned char eui64_8[LPWMN_MAC_EXT_ADDR_LEN];
    int rc, idx;
 
-   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x", 
-                &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x",
+                &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                 &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
    if (rc != LPWMN_MAC_EXT_ADDR_LEN)
    {
-       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x", 
-                   &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x",
+                   &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                    &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
        if (rc != LPWMN_MAC_EXT_ADDR_LEN)
        {
@@ -6295,8 +6295,8 @@ int GW_delNodeFromBlackList(const char *arg_p)
       }
       eui64_8[idx] = eui64[idx];
    }
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_DEL_NODE_FROM_BLACK_LIST, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_DEL_NODE_FROM_BLACK_LIST,
                         eui64_8, LPWMN_MAC_EXT_ADDR_LEN);
    if (rc != 1)
        return rc;
@@ -6310,7 +6310,7 @@ int GW_delNodeFromBlackList(const char *arg_p)
        printf("Header not acked !! \n");
        return 41;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -6323,7 +6323,7 @@ int GW_delNodeFromBlackList(const char *arg_p)
    }
 
    printf("Request sent ... \n");
-       
+
    return 0;
 }
 
@@ -6343,7 +6343,7 @@ int GW_clrWhiteList( )
        return 5;
    printf("Request sent ... \n");
 }
-        
+
 
 /*
  ********************************************************************
@@ -6359,13 +6359,13 @@ int GW_delNodeFromWhiteList(const char *arg_p)
    unsigned char eui64_8[LPWMN_MAC_EXT_ADDR_LEN];
    int rc, idx;
 
-   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x", 
-                &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x",
+                &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                 &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
    if (rc != LPWMN_MAC_EXT_ADDR_LEN)
    {
-       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x", 
-                   &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x",
+                   &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                    &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
        if (rc != LPWMN_MAC_EXT_ADDR_LEN)
        {
@@ -6383,8 +6383,8 @@ int GW_delNodeFromWhiteList(const char *arg_p)
       }
       eui64_8[idx] = eui64[idx];
    }
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_DEL_NODE_FROM_WHITE_LIST, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_DEL_NODE_FROM_WHITE_LIST,
                         eui64_8, LPWMN_MAC_EXT_ADDR_LEN);
    if (rc != 1)
        return rc;
@@ -6398,7 +6398,7 @@ int GW_delNodeFromWhiteList(const char *arg_p)
        printf("Header not acked !! \n");
        return 41;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -6411,7 +6411,7 @@ int GW_delNodeFromWhiteList(const char *arg_p)
    }
 
    printf("Request sent ... \n");
-       
+
    return 0;
 }
 
@@ -6436,11 +6436,11 @@ int GW_getNodeLastFEId(const char *arg_p)
        rc = sscanf(arg_p, "0x%x", &shortAddr);
        if (rc != 1 || shortAddr < 0x1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
        {
-           printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+           printf("please enter a valid short address (> 1 & <= %u) !! \n",
                   LPWMN_MAX_UNICAST_SHORT_ADDR);
            return 9;
        }
-   } 
+   }
 
    // printf("Short addr <%u> \n", shortAddr);
 
@@ -6455,12 +6455,12 @@ int GW_getNodeLastFEId(const char *arg_p)
 
    GW_htons(pyld_p, shortAddr);
    off = LPWMN_MAC_SHORT_ADDR_LEN;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_NODE_LAST_FATAL_ERR_ID, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_GET_NODE_LAST_FATAL_ERR_ID,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6470,29 +6470,29 @@ int GW_getNodeLastFEId(const char *arg_p)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = 0xff;
    expDisMsgSrcShortAddr = LPWMN_BROADCAST_SHORT_ADDR;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_GET_NODE_LAST_FATAL_ERR_ID, 0);
 
    return rc;
 }
-   
+
 
 #define SPARSH_PANEL_CONTROL_MSG_LEN  12
 #define SPARSH_PANEL_CONTROL_LIGHT_GP_ID  250
@@ -6508,7 +6508,7 @@ int GW_getNodeLastFEId(const char *arg_p)
 #define SPARSH_LIGHT_TURN_OFF_CMD  100
 
 
-        
+
 /*
  ********************************************************************
  *
@@ -6523,7 +6523,7 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
    int rc, pyldLen, msgLen, off = 0, pointId, groupId;
    unsigned char *pyld_p;
    int cmdByte = 0;
-    
+
    switch (arg1_p[0])
    {
       case 'l':
@@ -6599,7 +6599,7 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
               msgLen = SPARSH_PANEL_FAN_GP_CTRL_MSG_LEN;
            }
            break;
-      
+
       case 'd':
            {
               rc = sscanf(arg1_p, "d%d", &pointId);
@@ -6623,7 +6623,7 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
                           rc = sscanf(arg2_p, "%d", &dimmerLvl);
                           if (rc != 1 || dimmerLvl < 1 || dimmerLvl > 10)
                           {
-                              printf("Enter valid dimmer level (on / off / 1 - 10) \n"); 
+                              printf("Enter valid dimmer level (on / off / 1 - 10) \n");
                               return 11;
                           }
                           else
@@ -6644,10 +6644,10 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
            }
            break;
    }
-   
+
 
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + msgLen;
-   
+
    pyld_p = (unsigned char *)malloc(pyldLen);
    if (pyld_p == NULL)
    {
@@ -6655,7 +6655,7 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
        return 1;
    }
 
-   printf("\n gp %d / point %d / pyld len %d / cmd byte %d \n", 
+   printf("\n gp %d / point %d / pyld len %d / cmd byte %d \n",
           groupId, pointId, pyldLen, cmdByte);
 
    GW_htons(pyld_p, 0x2);
@@ -6682,12 +6682,12 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
       default:
            break;
    }
-   
+
    rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, pyld_p, pyldLen);
 
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6697,21 +6697,21 @@ int GW_sendSparshPanelCtrlCmd(const char *arg1_p,
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Sent request to panel \n");
-                      
+
    return rc;
 }
 
@@ -6737,12 +6737,12 @@ int GW_getPOS(const char *argv[])
        rc = sscanf(argv[3], "0x%x", &shortAddr);
        if (rc != 1 || shortAddr <= 0x1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
        {
-           printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+           printf("please enter a valid short address (> 1 & <= %u) !! \n",
                   LPWMN_MAX_UNICAST_SHORT_ADDR);
            return 9;
        }
    }
- 
+
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ;
 
    pyld_p = (unsigned char *)malloc(pyldLen);
@@ -6755,12 +6755,12 @@ int GW_getPOS(const char *argv[])
    GW_htons(pyld_p, shortAddr);
    off = LPWMN_MAC_SHORT_ADDR_LEN;
    pyld_p[off ++] = DIS_MSG_TYPE_GET_GPIO_PORT_OP_STATE;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6770,15 +6770,15 @@ int GW_getPOS(const char *argv[])
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
@@ -6788,10 +6788,10 @@ int GW_getPOS(const char *argv[])
 
 #else
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_GET_GPIO_PORT_OP_STATE;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 #endif
 
@@ -6820,12 +6820,12 @@ int GW_digitalIOCtrl(const char *argv[])
        rc = sscanf(argv[3], "0x%x", &shortAddr);
        if (rc != 1 || shortAddr <= 0x1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
        {
-           printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+           printf("please enter a valid short address (> 1 & <= %u) !! \n",
                   LPWMN_MAX_UNICAST_SHORT_ADDR);
            return 9;
        }
    }
- 
+
    rc = sscanf(argv[4], "%u", &portId);
    if (rc != 1 || portId < 0x1 || portId > 16)
    {
@@ -6906,11 +6906,11 @@ int GW_digitalIOCtrl(const char *argv[])
    }
 #endif
 
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6920,22 +6920,22 @@ int GW_digitalIOCtrl(const char *argv[])
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Sent request to remote node \n");
-                      
-   return rc;  
+
+   return rc;
 }
 
 
@@ -6960,18 +6960,18 @@ int GW_sendImageSwReq(unsigned short shortAddr)
        printf("malloc(%d) failed !! \n", pyldLen);
        return 1;
    }
-   
+
    UC_FU_cntxt.currState = UC_FU_STATE_SENT_IMAGE_SWITCH_REQUEST;
 
    GW_htons(pyld_p, shortAddr);
    off = LPWMN_MAC_SHORT_ADDR_LEN;
    pyld_p[off ++] = DIS_MSG_TYPE_SWITCH_TO_SBY_IMAGE;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -6981,25 +6981,25 @@ int GW_sendImageSwReq(unsigned short shortAddr)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                                             
-                      
+
+
    expDisMsgType = DIS_MSG_TYPE_NODE_UC_FU_MODULE_INFO;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -7027,11 +7027,11 @@ int GW_getNodeSensorCnt(const char *arg_p)
        rc = sscanf(arg_p, "0x%x", &shortAddr);
        if (rc != 1 || shortAddr <= 0x1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
        {
-           printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+           printf("please enter a valid short address (> 1 & <= %u) !! \n",
                   LPWMN_MAX_UNICAST_SHORT_ADDR);
            return 9;
        }
-   } 
+   }
 
    pyldLen = LPWMN_MAC_SHORT_ADDR_LEN + DIS_MSG_TYPE_SZ;
 
@@ -7045,12 +7045,12 @@ int GW_getNodeSensorCnt(const char *arg_p)
    GW_htons(pyld_p, shortAddr);
    off = LPWMN_MAC_SHORT_ADDR_LEN;
    pyld_p[off ++] = DIS_MSG_TYPE_GET_NODE_SENSOR_COUNT;
-    
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_RELAY_TO_NODE,
                         pyld_p, pyldLen);
    if (rc != 1)
        return rc;
-      
+
    rc = GW_readSerIntf(UART_MSG_TYPE_ACK, 0);
    if (rc != 0)
        return rc;
@@ -7060,24 +7060,24 @@ int GW_getNodeSensorCnt(const char *arg_p)
        printf("Header not acked !! \n");
        return 2;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
-   
+
    // Send payload
    rc = writePort(pyld_p, pyldLen);
    if (rc != 1)
    {
-       printf("<%s> writePort(%d) failed !! \n", 
+       printf("<%s> writePort(%d) failed !! \n",
               __FUNCTION__, pyldLen);
        return 3;
    }
 
    printf("Request sent. Waiting for response ..... \n");
-                      
+
    expDisMsgType = DIS_MSG_TYPE_NODE_SENSOR_COUNT;
    expDisMsgSrcShortAddr = shortAddr;
-   
+
    rc = GW_readSerIntf(LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE, 0);
 
    return rc;
@@ -7098,13 +7098,13 @@ int GW_addNodeToBlackList(const char *arg_p)
    unsigned char eui64_8[LPWMN_MAC_EXT_ADDR_LEN];
    int rc, idx;
 
-   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x", 
-                &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x",
+                &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                 &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
    if (rc != LPWMN_MAC_EXT_ADDR_LEN)
    {
-       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x", 
-                   &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x",
+                   &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                    &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
        if (rc != LPWMN_MAC_EXT_ADDR_LEN)
        {
@@ -7122,8 +7122,8 @@ int GW_addNodeToBlackList(const char *arg_p)
       }
       eui64_8[idx] = eui64[idx];
    }
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ADD_NODE_TO_BLACK_LIST, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ADD_NODE_TO_BLACK_LIST,
                         eui64_8, LPWMN_MAC_EXT_ADDR_LEN);
    if (rc != 1)
        return rc;
@@ -7137,7 +7137,7 @@ int GW_addNodeToBlackList(const char *arg_p)
        printf("Header not acked !! \n");
        return 41;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -7150,7 +7150,7 @@ int GW_addNodeToBlackList(const char *arg_p)
    }
 
    printf("Request sent ... \n");
-       
+
    return 0;
 }
 
@@ -7169,13 +7169,13 @@ int GW_addNodeToWhiteList(const char *arg_p)
    unsigned char eui64_8[LPWMN_MAC_EXT_ADDR_LEN];
    int rc, idx;
 
-   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x", 
-                &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+   rc = sscanf(arg_p, "%x:%x:%x:%x:%x:%x:%x:%x",
+                &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                 &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
    if (rc != LPWMN_MAC_EXT_ADDR_LEN)
    {
-       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x", 
-                   &eui64[0], &eui64[1], &eui64[2], &eui64[3], 
+       rc = sscanf(arg_p, "0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x:0x%x",
+                   &eui64[0], &eui64[1], &eui64[2], &eui64[3],
                    &eui64[4], &eui64[5], &eui64[6], &eui64[7]);
        if (rc != LPWMN_MAC_EXT_ADDR_LEN)
        {
@@ -7193,8 +7193,8 @@ int GW_addNodeToWhiteList(const char *arg_p)
       }
       eui64_8[idx] = eui64[idx];
    }
-   
-   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ADD_NODE_TO_WHITE_LIST, 
+
+   rc = GW_buildSendHdr(LPWMN_GW_MSG_TYPE_ADD_NODE_TO_WHITE_LIST,
                         eui64_8, LPWMN_MAC_EXT_ADDR_LEN);
    if (rc != 1)
        return rc;
@@ -7208,7 +7208,7 @@ int GW_addNodeToWhiteList(const char *arg_p)
        printf("Header not acked !! \n");
        return 41;
    }
-      
+
    if (verbose)
        printf("Header acked \n");
 
@@ -7221,7 +7221,7 @@ int GW_addNodeToWhiteList(const char *arg_p)
    }
 
    printf("Request sent ... \n");
-       
+
    return 0;
 }
 
@@ -7283,7 +7283,7 @@ LPWMN_nodeListEntry_s *GW_allocNode(void)
        new_p->next_p = LPWMN_nodeListHead_p;
    else
        new_p->next_p = NULL;
-       
+
    LPWMN_nodeListHead_p = new_p;
 
    return new_p;
@@ -7314,7 +7314,7 @@ LPWMN_nodeListEntry_s *GW_lookUpExtAddr(unsigned char *extAddr_p)
 
    return node_p;
 }
-                      
+
 
 
 
@@ -7330,7 +7330,7 @@ LPWMN_nodeListEntry_s *GW_lookUpExtAddr(unsigned char *extAddr_p)
 int GW_writeToFile(int fd, unsigned char *buff_p, unsigned int cnt)
 {
    int rc, bytesLeft = cnt, bytesWritten = 0;
-    
+
    while (bytesLeft > 0)
    {
       rc = write(fd, buff_p + bytesWritten, bytesLeft);
@@ -7360,18 +7360,18 @@ int GW_writeToFile(int fd, unsigned char *buff_p, unsigned int cnt)
 void GW_storeEvent(char *buff_p)
 {
    int fd;
- 
+
    fd = open(GW_EVT_FILE_NAME, O_WRONLY | O_APPEND | O_CREAT);
    if (fd < 0)
    {
-       printf("Failed to open event file <%s> !! - errno<%d> \n", 
+       printf("Failed to open event file <%s> !! - errno<%d> \n",
               GW_EVT_FILE_NAME, errno);
        return;
    }
 
    if (verbose)
        printf("\n fd<%d> / buffLen<%d> \n", fd, strlen(buff_p));
- 
+
    GW_writeToFile(fd, buff_p, strlen(buff_p));
 
    // sync();
@@ -7380,7 +7380,7 @@ void GW_storeEvent(char *buff_p)
 
    return;
 }
-   
+
 
 /*
  ********************************************************************
@@ -7401,7 +7401,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
 
    timeStr_p[strlen(timeStr_p) - 1] = '\0';
 
-   if (verbose) 
+   if (verbose)
        printf("\nevtLen<%d>\n", msgLen);
 
    if (msgLen >= LPWMN_GW_EVT_ID_LEN)
@@ -7410,8 +7410,8 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
 
        msgLen -= LPWMN_GW_EVT_ID_LEN;
        buff_p += LPWMN_GW_EVT_ID_LEN;
-   
-       if (verbose) 
+
+       if (verbose)
            printf("\nevt-Id<%d>\n", evtId);
 
        switch (evtId)
@@ -7420,8 +7420,8 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                {
                   printf("----------------------------------------------------------------------------------- \n");
                   printf("Timestamp (%s)\n", timeStr_p);
-                  
-                  if (msgLen >= LPWMN_MAC_SHORT_ADDR_LEN) 
+
+                  if (msgLen >= LPWMN_MAC_SHORT_ADDR_LEN)
                   {
                       unsigned int shortAddr = GW_ntohs(buff_p);
                       printf("Event - Path Discovery To Node %u Started \n", shortAddr);
@@ -7443,8 +7443,8 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
 
                   printf("----------------------------------------------------------------------------------- \n");
                   printf("Timestamp (%s)\n", timeStr_p);
-                  
-                  if (msgLen >= LPWMN_MAC_SHORT_ADDR_LEN + LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN) 
+
+                  if (msgLen >= LPWMN_MAC_SHORT_ADDR_LEN + LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN)
                   {
                       unsigned int idx, tgtAddr = GW_ntohs(buff_p);
                       printf("Event - Path Discovery To Node %u Over \n", tgtAddr);
@@ -7461,7 +7461,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                              case ADP_STS_PATH_DISC_TIMED_OUT:
                                   printf("<Path discovery session timed out !!> \n");
                                   break;
- 
+
                              case ADP_STS_NODE_NOT_FOUND:
                                   printf("<Specified node is not registered !!> \n");
                                   break;
@@ -7475,8 +7475,8 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                       }
 
                       printf("\nPath reply received .... \n\n");
-                      
-                      
+
+
                       // printf("\n [0] msgLen %d \n", msgLen);
                       // for (idx=0; idx<msgLen; idx++)
                       //     printf("\n 0x%02x", buff_p[idx]);
@@ -7484,7 +7484,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
 
                       buff_p += (LPWMN_MAC_SHORT_ADDR_LEN + LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN);
                       msgLen -= (LPWMN_MAC_SHORT_ADDR_LEN + LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN);
-                      
+
                       // printf("\n [1] msgLen %d \n", msgLen);
 
                       if (msgLen >= (LPWMN_MAC_SHORT_ADDR_LEN*2 + LPWMN_GW_PATH_DISC_EVT_HOP_CNT_FIELD_LEN))
@@ -7492,20 +7492,20 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                           int fwdHopCnt;
 
                           buff_p += (LPWMN_MAC_SHORT_ADDR_LEN * 2);
-                            
+
                           fwdHopCnt = *buff_p;
                           buff_p ++;
-                         
+
                           printf("Forward Hop Cnt <%u> \n", fwdHopCnt);
 
-                          msgLen -= (LPWMN_MAC_SHORT_ADDR_LEN*2 + LPWMN_GW_PATH_DISC_EVT_HOP_CNT_FIELD_LEN); 
-                      
+                          msgLen -= (LPWMN_MAC_SHORT_ADDR_LEN*2 + LPWMN_GW_PATH_DISC_EVT_HOP_CNT_FIELD_LEN);
+
                           // printf("\n [2] msgLen %d \n", msgLen);
 
                           if (msgLen >= (fwdHopCnt * LPWMN_MAC_SHORT_ADDR_LEN))
                           {
                               int idx;
-                              
+
                               for (idx=0; idx<fwdHopCnt; idx++)
                               {
                                    printf("  Forward Hop[%d] <%u> \n", idx + 1, GW_ntohs(buff_p));
@@ -7517,28 +7517,28 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                              if (msgLen >= LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN
                                            + LPWMN_GW_PATH_DISC_EVT_HOP_CNT_FIELD_LEN)
                              {
-                                 
+
                                  int fwdSts = *buff_p, revHopCnt;
                                  buff_p ++;
                                  msgLen -= (LPWMN_GW_PATH_DISC_EVT_STS_FIELD_LEN);
-   
+
                                  if (fwdSts == 0)
                                      printf("\nPath reply received from %u \n", tgtAddr);
                                  else
                                      printf("\nIncomplete path obtained ... sts<%d> !!\n", fwdSts);
-   
+
                                  revHopCnt = *buff_p;
                                  buff_p ++;
                                  msgLen -= LPWMN_GW_PATH_DISC_EVT_HOP_CNT_FIELD_LEN;
-   
+
                                  printf("\nReverse Hop Cnt <%u> \n", revHopCnt);
-    
+
                                  // printf("\n [3] msgLen %d \n", msgLen);
-                                  
+
                                  if (msgLen >= (revHopCnt * LPWMN_MAC_SHORT_ADDR_LEN))
                                  {
                                      int idx;
-                                 
+
                                      for (idx=0; idx<revHopCnt; idx++)
                                      {
                                           printf("  Reverse Hop[%d] <%u> \n", idx + 1, GW_ntohs(buff_p));
@@ -7548,7 +7548,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                                  else
                                      badMsg = 1;
                              }
-                         } 
+                         }
                          else
                              badMsg = 1;
                      }
@@ -7557,8 +7557,8 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   }
                   else
                      badMsg = 1;
-                 
-                  if (badMsg) 
+
+                  if (badMsg)
                   {
                       printf("Received malformed \"Path Discovery Over Event\" !! \n");
                   }
@@ -7570,18 +7570,18 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                {
                   int idx, strOff = 0;
 
-                  strOff += sprintf(GW_eventStrBuff + strOff,  
+                  strOff += sprintf(GW_eventStrBuff + strOff,
                                    "-----------------------------------------------------------------------------------\n");
                   strOff += sprintf(GW_eventStrBuff + strOff,
                                    "Timestamp <%s>\n", timeStr_p);
 
                   strOff += sprintf(GW_eventStrBuff + strOff, "Event <Node Registered> \n");
 
-                  if (msgLen == (LPWMN_MAC_SHORT_ADDR_LEN 
+                  if (msgLen == (LPWMN_MAC_SHORT_ADDR_LEN
                                  + LPWMN_MAC_EXT_ADDR_LEN
                                  + LPWMN_MAC_NODE_CAPABILITY_INFO_LEN))
                   {
-                      unsigned int shortAddr; 
+                      unsigned int shortAddr;
                       LPWMN_nodeListEntry_s *node_p;
 
                       shortAddr = GW_ntohs(buff_p);
@@ -7594,13 +7594,13 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                            strOff += sprintf(GW_eventStrBuff + strOff, ":%02x", buff_p[idx]);
                       }
                       strOff += sprintf(GW_eventStrBuff + strOff, "> \n");
-                      
+
                       node_p = GW_lookUpShortAddr(shortAddr);
                       if (node_p != NULL)
                       {
                           strOff += sprintf(GW_eventStrBuff + strOff, "\nDup short address <0x%x> detected !!!!!! \n", shortAddr);
                           strOff += sprintf(GW_eventStrBuff + strOff, "\nNode with ext addr ");
-                          for (idx=0; idx<LPWMN_MAC_EXT_ADDR_LEN; idx++) 
+                          for (idx=0; idx<LPWMN_MAC_EXT_ADDR_LEN; idx++)
                           {
                                strOff += sprintf(GW_eventStrBuff + strOff, "<0x%x>", node_p->extAddr[idx]);
                           }
@@ -7621,14 +7621,14 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                       buff_p += LPWMN_MAC_EXT_ADDR_LEN;
 
                   }
-                  sprintf(GW_eventStrBuff + strOff, 
+                  sprintf(GW_eventStrBuff + strOff,
                           "----------------------------------------------------------------------------------- \n");
                   printf("%s", GW_eventStrBuff);
 
                   GW_storeEvent(GW_eventStrBuff);
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_PURGE_RT_TBL:
                {
                   unsigned int shortAddr;
@@ -7650,11 +7650,11 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   oa = GW_ntohs(buff_p);
                   buff_p += LPWMN_MAC_SHORT_ADDR_LEN;
                   sa = GW_ntohs(buff_p);
-                  buff_p += LPWMN_MAC_SHORT_ADDR_LEN;  
+                  buff_p += LPWMN_MAC_SHORT_ADDR_LEN;
                   reqId = *(buff_p);
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s)\n", timeStr_p);
-                  printf("Event - Received route request for <%04u> - orig<%04u> sender<%04u> req-id<%03u> \n", 
+                  printf("Event - Received route request for <%04u> - orig<%04u> sender<%04u> req-id<%03u> \n",
                          da, oa, sa, reqId);
                   printf("----------------------------------------------------------------------------------- \n");
                }
@@ -7668,15 +7668,15 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s)\n", timeStr_p);
                   printf("Event - Received route request from non-registered node <%04u> \n", shortAddr);
-                  
+
                   buff_p += LPWMN_MAC_SHORT_ADDR_LEN;
                   unsigned char pduLen = *(buff_p ++);
                   for (idx=0; idx<pduLen;  idx++)
-                  { 
+                  {
                        if (idx % 8 == 0)
                            printf("\n[%02u] ", idx);
                        printf(" 0x%02x", buff_p[idx]);
-                  } 
+                  }
                   printf("\n");
                   printf("----------------------------------------------------------------------------------- \n");
                }
@@ -7690,20 +7690,20 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s)\n", timeStr_p);
                   printf("Event - Received packet from non-registered node <%04u> \n", shortAddr);
-                      
+
                   buff_p += LPWMN_MAC_SHORT_ADDR_LEN;
                   unsigned char pduLen = *(buff_p ++);
                   for (idx=0; idx<pduLen;  idx++)
-                  { 
+                  {
                        if (idx % 8 == 0)
                            printf("\n[%02u] ", idx);
                        printf(" 0x%02x", buff_p[idx]);
-                  } 
+                  }
                   printf("\n");
                   printf("----------------------------------------------------------------------------------- \n");
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_RCVD_PKT_WITH_INV_MESH_SRC_ADDR:
                {
                   unsigned int shortAddr, idx;
@@ -7713,20 +7713,20 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("Timestamp (%s)\n", timeStr_p);
                   printf("Event - Received packet from non-registered node <%04u> \n", shortAddr);
                   printf("----------------------------------------------------------------------------------- \n");
-                  
+
                   buff_p += LPWMN_MAC_SHORT_ADDR_LEN;
                   unsigned char pduLen = *(buff_p ++);
                   for (idx=0; idx<pduLen;  idx++)
-                  { 
+                  {
                        if (idx % 8 == 0)
                            printf("\n[%02u] ", idx);
                        printf(" 0x%02x", buff_p[idx]);
-                  } 
+                  }
                   printf("\n");
                   printf("----------------------------------------------------------------------------------- \n");
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_ASSOC_REQ_FROM_BL_NODE:
                {
                   int idx;
@@ -7741,7 +7741,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("----------------------------------------------------------------------------------- \n");
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_RELAYED_ASSOC_REQ_FROM_BL_NODE:
                {
                   int idx;
@@ -7756,7 +7756,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("----------------------------------------------------------------------------------- \n");
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_ASSOC_REQ_DROPPED:
                {
                   int idx;
@@ -7771,7 +7771,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   printf("Time to assoc allowed <%d seconds> \n", *(buff_p + LPWMN_MAC_EXT_ADDR_LEN));
                }
                break;
-          
+
           case LPWMN_GW_EVT_TYPE_LOCAL_RT_DISC_STARTED:
                {
                   unsigned int shortAddr, attemptNr;
@@ -7780,7 +7780,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   attemptNr = GW_ntohs(buff_p + LPWMN_MAC_SHORT_ADDR_LEN);
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s)\n", timeStr_p);
-                  printf("Event - Route discovery to %u started (attempt %d)  \n", 
+                  printf("Event - Route discovery to %u started (attempt %d)  \n",
                          shortAddr, attemptNr);
                   printf("----------------------------------------------------------------------------------- \n");
                }
@@ -7794,7 +7794,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   nextHop = GW_ntohs(buff_p + LPWMN_MAC_SHORT_ADDR_LEN);
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s)\n", timeStr_p);
-                  printf("Event - Route discovery (to %u) over .... next-hop <%u> \n", 
+                  printf("Event - Route discovery (to %u) over .... next-hop <%u> \n",
                          shortAddr, nextHop);
                   printf("----------------------------------------------------------------------------------- \n");
                }
@@ -7865,7 +7865,7 @@ int GW_processEvt(unsigned char *buff_p, int msgLen)
                   modIdx = *buff_p;
                   printf("-----------------------------------------------------------------------------------\n");
                   printf("Timestamp (%s) \n", timeStr_p);
-                  printf("Event - MAC Tx Cnfrm / result <%u> / module <%u:%s> / (# %u) \n", 
+                  printf("Event - MAC Tx Cnfrm / result <%u> / module <%u:%s> / (# %u) \n",
                          result, modIdx, modIdx <= 6 ? LPWMN_macMod[modIdx] : "Unknown" , cnt);
                   printf("----------------------------------------------------------------------------------- \n");
                }
@@ -7929,7 +7929,7 @@ unsigned char GW_forkLiftDetnNodeExtAddr[] = {0xfc, 0xc2, 0x3d, 0x00, 0x00, 0x01
 
 
 #define MAX_SONAR_FL_DETN_THRESHOLD  20  // inches
-                                      
+
 
 /*
  ********************************************************************
@@ -7946,11 +7946,11 @@ void GW_barrierCntrlProc(int openBarrier)
    attrVal <<= 8;
    attrVal = attrVal & 0xff00;
    attrVal |= PLTFRM_GPIO_PORT_PIN_4;
-   
+
    GW_setCoordAttrVal(LPWMN_COORD_SHORT_ADDR, attrId, attrVal);
 }
 
-           
+
 #ifdef __THINGSPEAK_SUPPORT_ENA__
 /*
  ********************************************************************
@@ -7966,7 +7966,7 @@ GW_tsMappingEntry_s *GW_lookUpSnsrInTSMap(GW_tsMappingEntry_s *nodeFirstEntry_p,
    int found = 0;
    GW_tsMappingEntry_s *entry_p = nodeFirstEntry_p;
 
-   do 
+   do
    {
       if (memcmp(nodeFirstEntry_p->_extAddr, entry_p->_extAddr, LPWMN_MAC_EXT_ADDR_LEN) == 0)
       {
@@ -7998,7 +7998,7 @@ GW_tsMappingEntry_s *GW_lookUpNodeInTSMap(unsigned char *extAddr_p)
 {
    GW_tsMappingEntry_s *entry_p = GW_tsMappingHead_p;
 
-   do 
+   do
    {
       if (memcmp(extAddr_p, entry_p->_extAddr, LPWMN_MAC_EXT_ADDR_LEN) == 0)
           break;
@@ -8008,7 +8008,7 @@ GW_tsMappingEntry_s *GW_lookUpNodeInTSMap(unsigned char *extAddr_p)
 
    return entry_p;
 }
-                                       
+
 
 
 /*
@@ -8019,8 +8019,8 @@ GW_tsMappingEntry_s *GW_lookUpNodeInTSMap(unsigned char *extAddr_p)
  *
  ********************************************************************
  */
-void GW_sendSnsrFloatDataToTS(ts_context_t *cntxt_p, 
-                              GW_tsMappingEntry_s *entry_p, 
+void GW_sendSnsrFloatDataToTS(ts_context_t *cntxt_p,
+                              GW_tsMappingEntry_s *entry_p,
                               float dataVal)
 {
    int sendToTS = 1;
@@ -8036,11 +8036,11 @@ void GW_sendSnsrFloatDataToTS(ts_context_t *cntxt_p,
 
    if (verboseTS)
        printf("snsrf data added to dataBuff <%s> \n", cntxt_p->dataBuff);
-   
+
    return;
 }
 #endif
-                                  
+
 
 
 /*
@@ -8051,15 +8051,15 @@ void GW_sendSnsrFloatDataToTS(ts_context_t *cntxt_p,
  *
  ********************************************************************
  */
-double GW_procThermistorData(unsigned char snsrId, 
-                             double snsrOp) 
+double GW_procThermistorData(unsigned char snsrId,
+                             double snsrOp)
 {
    double _r, _rl;
    double t25 = 25 + 273.15;
    double r_t = snsrOp;
    int b25by85;
-  
-   if (verbose) 
+
+   if (verbose)
        printf("\n  sensor op : %d  \n",  snsrOp);
 
    switch (snsrId)
@@ -8088,7 +8088,7 @@ double GW_procThermistorData(unsigned char snsrId,
    // loge(R25/RT) = B * (1/T25 - 1/T)
    // 1/T = 1/T25 - loge(R25/RT)/B
    // T = 1 / (1/T25 - loge(R25/RT)/B)
-    
+
    _r /= r_t;
    _rl = log(_r);
    _rl /= b25by85;
@@ -8096,7 +8096,7 @@ double GW_procThermistorData(unsigned char snsrId,
    _r /= t25;
    _r -= _rl;
    _r = (1 / _r);
-                          
+
    return (_r - 273.15);
 }
 
@@ -8139,9 +8139,9 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
    timeStr_p[strlen(timeStr_p) - 1] = '\0';
 
-   if (msgLen < LPWMN_MAC_SHORT_ADDR_LEN 
-                + LPWMN_MAC_EXT_ADDR_LEN 
-                + LPWMN_MSG_RSSI_LEN 
+   if (msgLen < LPWMN_MAC_SHORT_ADDR_LEN
+                + LPWMN_MAC_EXT_ADDR_LEN
+                + LPWMN_MSG_RSSI_LEN
                 + LPWMN_MSG_CORR_LQI_LEN)
        return;
 
@@ -8153,7 +8153,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
        if (srcShortAddr != expShortAddr)
            return;
    }
-                
+
    printf("----------------------------------------------------------------------------------- \n");
 
 
@@ -8161,6 +8161,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
    jsonNodeMsgObj_p = json_object();
    json_object_set_new(jsonNodeMsgObj_p, "TimeStamp", json_string(timeStr_p));
    json_object_set_new(jsonNodeMsgObj_p, "NodeID", json_integer(srcShortAddr));
+   json_object_set_new(jsonNodeMsgObj_p, "PacketID", json_integer(GW_rcvdMsgCnt++));
 #endif
 
    GW_rcvdMsgCnt ++;
@@ -8171,11 +8172,10 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
    // drop every other packet
    // if ((node_p->msgRcvdCnt % 5) != 0x0)
    //      return;
-
    off += LPWMN_MAC_SHORT_ADDR_LEN;
-   
+
    nodeExtAddr_p = buff_p + off;
-       
+
 #ifdef JSON_ENC_ENA
    {
       int idx, lOff = 0;
@@ -8188,9 +8188,9 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
    }
 #endif
 
-   printf("[%u] Received msg from node <%05u / %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x> \n", 
+   printf("[%u] Received msg from node <%05u / %02x:%02x:%02x:%02x:%02x:%02x:%02x:%02x> \n",
           GW_rcvdMsgCnt,
-          srcShortAddr, 
+          srcShortAddr,
           (unsigned int)buff_p[off],
           (unsigned int)buff_p[off+1],
           (unsigned int)buff_p[off+2],
@@ -8204,7 +8204,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
    rssi = (signed char)buff_p[off];
    lqi_corr = buff_p[off + 1];
- 
+
    printf("RSSI %d dBm / LQI %u\n", (int)rssi, lqi_corr);
 
 #ifdef JSON_ENC_ENA
@@ -8214,12 +8214,12 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
    off += (LPWMN_MSG_RSSI_LEN + LPWMN_MSG_CORR_LQI_LEN);
 
-   msgLen -= (LPWMN_MAC_SHORT_ADDR_LEN 
-              + LPWMN_MAC_EXT_ADDR_LEN 
-              + LPWMN_MSG_RSSI_LEN 
+   msgLen -= (LPWMN_MAC_SHORT_ADDR_LEN
+              + LPWMN_MAC_EXT_ADDR_LEN
+              + LPWMN_MSG_RSSI_LEN
               + LPWMN_MSG_CORR_LQI_LEN);
- 
-   if (verbose) 
+
+   if (verbose)
        printf("<%s> msgLen<%d> \n", __FUNCTION__, msgLen);
 
    if (msgLen < 1)
@@ -8232,19 +8232,19 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
    disMsgType = buff_p[off];
 
-   if (verbose) 
+   if (verbose)
        printf("\nDIS message type - 0x%x\n", disMsgType);
 
    off += DIS_MSG_TYPE_SZ;
    msgLen -= DIS_MSG_TYPE_SZ;
    buff_p += off;
-   
+
    if (msgLen <= 0xff)
    {
        unsigned char rc, tlvLen1, *buff1_p;
 
-       // hack !!!!!!!!!!!!!! 
-       if (verbose) 
+       // hack !!!!!!!!!!!!!!
+       if (verbose)
            printf("\ntlv type - 0x%x\n", *buff_p);
 
        if (disMsgType == DIS_MSG_TYPE_ATUAT_TAG_BCN_INFO)
@@ -8256,7 +8256,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
            if (tlvType == DIS_TLV_TYPE_ATUAT_TAG_BCN_INFO_LIST)
            {
                int idx, tlvCnt = 0;
-    
+
                for (;;)
                {
                   if (pyldLen >= (ATUAT_TAG_BCN_PDU_LEN + DIS_TLV_HDR_SZ))
@@ -8271,17 +8271,17 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                           int vcc = GW_ntohs(buff_p +  ATUAT_TAG_BCN_PDU_VCC_FIELD_OFF);
                           int rssi = *((char *)(buff_p +  ATUAT_TAG_BCN_PDU_RSSI_FIELD_OFF));
 
-                          // int ccaFlrCnt = GW_ntohs(buff_p + ATUAT_TAG_BCN_PDU_CCA_FLR_CNT_FIELD_OFF); 
+                          // int ccaFlrCnt = GW_ntohs(buff_p + ATUAT_TAG_BCN_PDU_CCA_FLR_CNT_FIELD_OFF);
                           // int intvSecs = GW_ntohs(buff_p + ATUAT_TAG_BCN_PDU_TX_INTERVAL_FIELD_OFF);
-                  
+
                           // printf("Bcn from TAG <0x%02x.0x%02x.0x%02x> CNTR<%u> VCC<%u mV> CCA_FLR<%u> INTV<%u secs> \n",
-                          //        buff_p[0],  buff_p[1],  buff_p[2],   
+                          //        buff_p[0],  buff_p[1],  buff_p[2],
                           //        cntr, vcc, ccaFlrCnt, intvSecs);
-                                
+
                           printf("Bcn from TAG <0x%02x.0x%02x.0x%02x> CNTR<%u> VCC<%u mV> RSSI<%d dBm> \n",
-                                 buff_p[0],  buff_p[1],  buff_p[2],   
+                                 buff_p[0],  buff_p[1],  buff_p[2],
                                  cntr, vcc, rssi);
-    
+
                           buff_p += ATUAT_TAG_BCN_PDU_LEN;
                           pyldLen -= (ATUAT_TAG_BCN_PDU_LEN + DIS_TLV_HDR_SZ);
                       }
@@ -8300,7 +8300,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
            if (error)
            {
                printf("Malformed ATUAT tag beacon info message -  %d %d !! \n", tlvType, pyldLen);
-           } 
+           }
 
            printf("----------------------------------------------------------------------------------- \n");
 
@@ -8308,10 +8308,10 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
        }
 
        if (disMsgType == DIS_MSG_TYPE_PING)
-       { 
+       {
            if (msgLen == 2)
-           { 
-               unsigned short pingSeqNr = GW_ntohs(buff_p); 
+           {
+               unsigned short pingSeqNr = GW_ntohs(buff_p);
                printf("Ping sequence number - %u \n", pingSeqNr);
            }
            else
@@ -8325,7 +8325,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
            return;
        }
-                             
+
        if (disMsgType == DIS_MSG_TYPE_STREAM_SEGMENT)
        {
            GW_streamSegHndlr(buff_p, msgLen);
@@ -8353,7 +8353,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
            // 1 byte: thermistor device id
            // 3 bytes: thermistor resistance
 
-           if (verbose) 
+           if (verbose)
                printf("Received msg type TEMP_TAG_DATA_FMT_1 of length <%d> \n", msgLen);
 
            if (msgLen == DIS_TEMP_TAG_DATA_FMT_1_LEN)
@@ -8366,32 +8366,32 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
                *(newBuff_p++) = DIS_TLV_TYPE_SENSOR_OUTPUT;
                *(newBuff_p++) = 7;
-               
+
                *(newBuff_p++) = DIS_TLV_TYPE_SENSOR_ID;
                *(newBuff_p++) = DIS_SENSOR_ID_FIELD_SZ;
                *(newBuff_p++) = PLTFRM_ON_CHIP_VCC_SENSOR_DEV_ID;
-             
+
                *(newBuff_p++) = DIS_TLV_TYPE_VALUE;
                *(newBuff_p++) = 2;
                *(newBuff_p++) = *(buff_p++);
                *(newBuff_p++) = *(buff_p++);
-               
+
                *(newBuff_p++) = DIS_TLV_TYPE_SENSOR_OUTPUT;
                *(newBuff_p++) = 8;
 
                *(newBuff_p++) = DIS_TLV_TYPE_SENSOR_ID;
                *(newBuff_p++) = DIS_SENSOR_ID_FIELD_SZ;
                *(newBuff_p++) = *(buff_p ++);
-             
+
                *(newBuff_p++) = DIS_TLV_TYPE_VALUE;
                *(newBuff_p++) = 3;
                *(newBuff_p++) = *(buff_p++);
                *(newBuff_p++) = *(buff_p++);
                *(newBuff_p++) = *(buff_p++);
-      
+
                buff_p = GW_specialMsgBuff;
                msgLen = newBuff_p - GW_specialMsgBuff;
-       
+
                disMsgType = DIS_MSG_TYPE_SENSOR_OUTPUT;
            }
            else
@@ -8421,13 +8421,13 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                        printf("Created TS context ... \n");
                }
            }
-       } 
+       }
 #endif
 
        rc = TLV_get(buff_p, msgLen, DIS_TLV_TYPE_SENSOR_OUTPUT_LIST, &tlvLen1, &buff1_p);
        if (rc == 0)
        {
-           if (1) 
+           if (1)
                printf("\nCould not find DIS_TLV_TYPE_SENSOR_OUTPUT_LIST !! \n");
 
 #ifdef JSON_ENC_ENA
@@ -8440,7 +8440,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 #endif
 
            return;
-       } 
+       }
        else
        {
 #ifdef JSON_ENC_ENA
@@ -8461,7 +8461,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                   if (verbose)
                       printf("\nCould not find another DIS_TLV_TYPE_SENSOR_OUTPUT TLV !! \n");
                   break;
-              } 
+              }
               else
               {
                   unsigned char tlvLen3, *buff3_p;
@@ -8483,13 +8483,13 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
                   if (verbose)
                       printf("\nFound DIS_TLV_TYPE_SENSOR_OUTPUT TLV .... val-fld-len<%d>", tlvLen2);
-                  
+
                   rc = TLV_get(buff2_p, tlvLen2, DIS_TLV_TYPE_SENSOR_ID, &tlvLen3, &buff3_p);
                   if (rc == 0)
                       continue;
                   else
                   {
-                      if (tlvLen3 == DIS_SENSOR_ID_FIELD_SZ) 
+                      if (tlvLen3 == DIS_SENSOR_ID_FIELD_SZ)
                       {
                           snsrId = *buff3_p;
                           if (verbose)
@@ -8506,7 +8506,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                       {
                           scaleFactor = *buff3_p;
                           if (verbose)
-                              printf("\nFound Scale factor <%d>", scaleFactor); 
+                              printf("\nFound Scale factor <%d>", scaleFactor);
                           if (!(scaleFactor >= DIS_DATA_SCALE_TERA && scaleFactor <= DIS_DATA_SCALE_FEMTO))
                                scaleFactor = DIS_DATA_SCALE_NONE;
                       }
@@ -8524,13 +8524,13 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
                       if (verbose)
                           printf("\nFound DIS_TLV_TYPE_VALUE TLV .... val-fld-len<%d>", tlvLen3);
-       
+
                       switch(tlvLen3)
                       {
                          case 1:
                               snsrOp = (int)(*buff3_p);
                               break;
-                    
+
                          case 2:
                               {
                                 snsrOp16 = GW_ntohs(buff3_p);
@@ -8557,14 +8557,14 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                          default:
                               break;
                       }
-           
+
 #ifdef __THINGSPEAK_SUPPORT_ENA__
                       if (__tsMapNodePtr_p != NULL)
                           __tsMapSnsrPtr_p = GW_lookUpSnsrInTSMap(__tsMapNodePtr_p, snsrId);
-                      {                               
+                      {
                           if (verboseTS)
                               printf("snsr %d %s found in TS map \n",snsrId, __tsMapSnsrPtr_p ? "" : "Not");
-                      }                               
+                      }
 #endif
 
                       switch (snsrId)
@@ -8574,7 +8574,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               unit_p = "";
                               scaleFactor = DIS_DATA_SCALE_NONE;
                               break;
-                              
+
                          case PLTFRM_ON_CHIP_VCC_SENSOR_DEV_ID:
                               printf("+[Node_Voltage] ");
                               unit_p = "Volts";
@@ -8589,13 +8589,13 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[Ext Current]   ");
                               unit_p = "mA";
                               break;
-                         
+
                          case PLTFRM_AD7797_1_DEV_ID:
                               printf("+[Load Cell]   ");
                               unit_p = "KG";
                               scaleFactor = DIS_DATA_SCALE_NONE;
                               break;
- 
+
                          case PLTFRM_MP3V5050GP_1_DEV_ID:
                               printf("+[P_MP3V5050GP]   ");
                               unit_p = "kPa";
@@ -8606,7 +8606,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               unit_p = "%";
                               scaleFactor = DIS_DATA_SCALE_CENTI;
                               break;
- 
+
                          case PLTFRM_MPXV5010G_1_DEV_ID:
                               printf("+[P_MPXV5010G]   ");
                               unit_p = "mm of water";
@@ -8641,7 +8641,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[GPIO Output] ");
                               unit_p = "";
                               break;
- 
+
                          case PLTFRM_LM75B_1_DEV_ID:
                               printf("+[Temp_LM75B] ");
                               unit_p = "Deg C";
@@ -8682,25 +8682,25 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               unit_p = "";
                               break;
 
-                         case PLTFRM_AS339_1_DIVER_PRESSURE_DEV_ID: 
+                         case PLTFRM_AS339_1_DIVER_PRESSURE_DEV_ID:
                               printf("+[Diver Pressure x 10]  ");
                               scaleFactor = DIS_DATA_SCALE_NONE;
                               unit_p = "cmH2O";
                               break;
 
-                         case PLTFRM_AS339_1_DIVER_TEMPERATURE_DEV_ID: 
+                         case PLTFRM_AS339_1_DIVER_TEMPERATURE_DEV_ID:
                               printf("+[Diver Temperature]  ");
                               scaleFactor = DIS_DATA_SCALE_CENTI;
                               unit_p = "Deg C";
                               break;
 
-                         case PLTFRM_AS339_1_DIVER_MOD_PRESSURE_DEV_ID: 
+                         case PLTFRM_AS339_1_DIVER_MOD_PRESSURE_DEV_ID:
                               printf("+[Diver-MOD Pressure x 10]  ");
                               scaleFactor = DIS_DATA_SCALE_DECI;
                               unit_p = "cmH2O";
                               break;
 
-                         case PLTFRM_AS339_1_DIVER_MOD_TEMPERATURE_DEV_ID: 
+                         case PLTFRM_AS339_1_DIVER_MOD_TEMPERATURE_DEV_ID:
                               printf("+[Diver-MOD Temperature]  ");
                               scaleFactor = DIS_DATA_SCALE_CENTI;
                               unit_p = "Deg C";
@@ -8744,7 +8744,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[Mains Monitor]  ");
                               unit_p = "";
                               break;
-                         
+
                          case PLTFRM_VIBRATION_SNSR_1_DEV_ID:
                               printf("+[Vibration Monitor]  ");
                               unit_p = "";
@@ -8755,7 +8755,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               scaleFactor = DIS_DATA_SCALE_NONE;
                               unit_p = "";
                               break;
-                          
+
                          case PLTFRM_PULSE_CNTR_2_DEV_ID:
                               printf("+[Pulse Count (Rain Gauge)]  ");
                               scaleFactor = DIS_DATA_SCALE_NONE;
@@ -8792,31 +8792,31 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               scaleFactor = DIS_DATA_SCALE_CENTI;
                               break;
 
-                         case PLTFRM_SOL_PSU_1_VSOL_DEV_ID: 
+                         case PLTFRM_SOL_PSU_1_VSOL_DEV_ID:
                               printf("+[SOL-PSU PANEL_V");
                               unit_p = "Volts";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
 
-                         case PLTFRM_SOL_PSU_1_VBATT_DEV_ID: 
+                         case PLTFRM_SOL_PSU_1_VBATT_DEV_ID:
                               printf("+[SOL-PSU BATT_V");
                               unit_p = "Volts";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
 
-                         case PLTFRM_SOL_PSU_1_VSYS_DEV_ID: 
+                         case PLTFRM_SOL_PSU_1_VSYS_DEV_ID:
                               printf("+[SOL-PSU SYS_V");
                               unit_p = "Volts";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
 
-                         case PLTFRM_SOL_PSU_1_ISOL_DEV_ID: 
+                         case PLTFRM_SOL_PSU_1_ISOL_DEV_ID:
                               printf("+[SOL-PSU PANEL_I");
                               unit_p = "mA";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
 
-                         case PLTFRM_SOL_PSU_1_IBATT_DEV_ID: 
+                         case PLTFRM_SOL_PSU_1_IBATT_DEV_ID:
                               printf("+[SOL-PSU BATT_I");
                               unit_p = "mA";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
@@ -8827,13 +8827,13 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               unit_p = "milli-volts";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
-                         
+
                          case PLTFRM_INA219_3_BV_DEV_ID:
                               printf("+[INA219_BUS_V]  ");
                               unit_p = "milli-volts";
                               scaleFactor = DIS_DATA_SCALE_MILLI;
                               break;
-                         
+
                          case PLTFRM_ACS712_1_CURRENT_DEV_ID:
                               printf("+[ACS712_1_S_V]  ");
                               unit_p = "milli-volts";
@@ -8866,7 +8866,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[NTC_THERM (Vishay NTCALUG02A)]   ");
                               unit_p = "deg C";
                               break;
-                         
+
 			 case PLTFRM_ELECTROHM_CT_1_DEV_ID:
 			 case PLTFRM_ELECTROHM_CT_2_DEV_ID:
 			 case PLTFRM_ELECTROHM_CT_3_DEV_ID:
@@ -8885,12 +8885,12 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[NTC_THERM (Deem DNAX300R103L040)]   ");
                               unit_p = "deg C";
                               break;
-                         
+
                          case PLTFRM_NTCALUG02A_2_DEV_ID:
                               printf("+[NTC_THERM (Vishay NTCALUG02A)]   ");
                               unit_p = "deg C";
                               break;
-                               
+
                          case PLTFRM_BAR_CODE_SCANNER_1_DEV_ID:
                               printf("+[Bar Code]     ");
                               unit_p = "";
@@ -8905,12 +8905,12 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               printf("+[Dist_MaxSonar_2 ]  ");
                               unit_p = "Inches";
                               break;
-                         
+
                          case PLTFRM_MAX_SONAR_3_DEV_ID:
                               printf("+[Dist_MaxSonar_3 ]  ");
                               unit_p = "Inches";
                               break;
-                         
+
                          case PLTFRM_CHIRP_PWLA_1_DEV_ID:
                               printf("+[Moisture_CHIRP] ");
                               unit_p = "na";
@@ -8978,7 +8978,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                       if (snsrId == PLTFRM_GEN_VOLT_MON_DEV_ID
                           || snsrId == PLTFRM_ON_CHIP_VCC_SENSOR_DEV_ID)
                           scaleFactor = DIS_DATA_SCALE_MILLI;
-                      
+
                       if (snsrId == PLTFRM_GEN_CURRENT_MON_DEV_ID)
                           scaleFactor = DIS_DATA_SCALE_NONE;
 
@@ -8987,20 +8987,20 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                           const GW_sensorInfo_s *info_p = GW_locateSensorInfo(snsrId);
                           if (info_p != NULL)
                           {
-                              json_object_set_new(jsonSnsrInfoObj_p, 
-                                                  "Sensor", 
+                              json_object_set_new(jsonSnsrInfoObj_p,
+                                                  "Sensor",
                                                   json_string(info_p->sensorType));
-                              json_object_set_new(jsonSnsrInfoObj_p, 
-                                                  "SensorPartNo", 
+                              json_object_set_new(jsonSnsrInfoObj_p,
+                                                  "SensorPartNo",
                                                   json_string(info_p->sensorPartNr));
-                              json_object_set_new(jsonSnsrInfoObj_p, 
-                                                  "SensorMfr", 
+                              json_object_set_new(jsonSnsrInfoObj_p,
+                                                  "SensorMfr",
                                                   json_string(info_p->Mfr));
-                              json_object_set_new(jsonSnsrInfoObj_p, 
-                                                  "SensorValueType", 
+                              json_object_set_new(jsonSnsrInfoObj_p,
+                                                  "SensorValueType",
                                                   json_string(info_p->valueType));
-                              json_object_set_new(jsonSnsrInfoObj_p, 
-                                                  "SensorInterface", 
+                              json_object_set_new(jsonSnsrInfoObj_p,
+                                                  "SensorInterface",
                                                   json_string(info_p->interface));
                           }
                       }
@@ -9060,7 +9060,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                           float valF = snsrOp;
 
                           // printf("\n scale  factor - %d / snsrOp %u \n", scaleFactor, snsrOp);
-                          
+
                           switch (scaleFactor)
                           {
                              case DIS_DATA_SCALE_MICRO:
@@ -9079,7 +9079,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                              case DIS_DATA_SCALE_DECI:
                                   valF /= 10;
                                   break;
- 
+
                              case DIS_DATA_SCALE_TENTH_MILLI:
                                   valF /= 10000;
                                   break;
@@ -9106,7 +9106,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 #endif
 
                           if (snsrId == PLTFRM_AD7797_1_DEV_ID)
-                          { 
+                          {
                               if (__calWt1Flag)
                               {
                                   float avgW1;
@@ -9136,7 +9136,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                       __calTotal += valF;
                                       avgW1 = __calTotal;
                                       avgW1 /= __calSampleCnt;
-                                  
+
                                       if (valF < minAdcVal)
                                           minAdcVal = valF;
                                       if (valF > maxAdcVal)
@@ -9200,9 +9200,9 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                   // temp /= .176;  // / 0.2
                                   // temp *= 101.97;  // in mm of water
 
-                                  // printf(" <%f mm of water> \n", temp); 
-                  
-                                  printf("Adc: %f V / Vcc: %f V / ratio: %f / delta: %f percent \n", 
+                                  // printf(" <%f mm of water> \n", temp);
+
+                                  printf("Adc: %f V / Vcc: %f V / ratio: %f / delta: %f percent \n",
                                          valF, __latestVcc, currRatio, delta);
                               }
                               else
@@ -9215,20 +9215,20 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                               temp = valF;
                               temp /= 5;  // __latestVcc;
                               temp -= 0.2;
-                              temp *= 5; 
+                              temp *= 5;
                               temp *= 101.97;  // in mm of water
-                                   
-                              printf(" <%f mm of water> \n", temp); 
+
+                              printf(" <%f mm of water> \n", temp);
 
 #endif
                           }
-                          
+
                           if (snsrId == PLTFRM_MPXV5010G_1_DEV_ID)
                           {
                               const float cVal = .27494;
                               const float mVal = 3.882;
                               // V = M*(Height in m) + C
-                              // H = (V - C) / M 
+                              // H = (V - C) / M
                               // H = (mV/1000 - C) / M
 
                               valF -= cVal;
@@ -9255,15 +9255,15 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                   // Where "pressure_error" is max +/- 1.25 kPa
 
                                   // Vout is in milli-volts
-                                  // Vcc is in milli-volts 
+                                  // Vcc is in milli-volts
 
                                   // P = ((Vout - Vcc/25)/(Vcc * .018)) - ERRORv
                                   // P = ((Vout - Vcc/25)/(Vcc * .018)) - Pressure_error
 
                                   // Vout/Vcc = .017217*P + 0.04732
-                                  // P = (Vout/Vcc - .04732) / 0.017217 
-                                  
-#if 0 
+                                  // P = (Vout/Vcc - .04732) / 0.017217
+
+#if 0
                                   temp = __latestVcc;
                                   temp /= 25;
                                   temp = valF - temp;
@@ -9274,19 +9274,19 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                   temp /= __latestVcc;
                                   temp -= .0490512; // .04732;
                                   temp /= 0.014156;  // 0.017217;
-#endif 
+#endif
                                   minP = temp - 1.25;
                                   maxP = temp + 1.25;
-                              
+
                                   printf(" <Snsr Op %f V / Supply %f V>  \n",
                                          valF, __latestVcc);
 
-                                  printf("               <%f %s < %f %s < %f %s> \n", 
+                                  printf("               <%f %s < %f %s < %f %s> \n",
                                          minP, unit_p, temp, unit_p, maxP, unit_p);
 
                                   printf("               <%f mm < %f mm < %f mm \n",
-                                         minP*101.971621298, temp*101.9716212984, maxP*101.971621298); 
-                                  
+                                         minP*101.971621298, temp*101.9716212984, maxP*101.971621298);
+
                               }
                               else
                               {
@@ -9303,7 +9303,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 #endif
                               printf(" <%f %s> \n", valF, unit_p);
                           }
-                          
+
                           if (snsrId == PLTFRM_ON_CHIP_VCC_SENSOR_DEV_ID)
                           {
                               __latestVcc = valF;
@@ -9313,7 +9313,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 #endif
                               __latestVccSet = 1;
                           }
- 
+
                           if (snsrId == PLTFRM_MAX_SONAR_1_DEV_ID
                               || snsrId == PLTFRM_MAX_SONAR_2_DEV_ID
                               || snsrId == PLTFRM_MAX_SONAR_3_DEV_ID)
@@ -9364,7 +9364,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                   {
                                       if (snsrId == GW_logSnsrId)
                                       {
-                                          sprintf(GW_snsrLogStrBuff, "%s, %f, %f \n", 
+                                          sprintf(GW_snsrLogStrBuff, "%s, %f, %f \n",
                                                   timeStr_p, __latestVccSet ? __latestVcc : 0.0, tempVal);
                                           GW_writeToFile(GW_snsrLogFileId, GW_snsrLogStrBuff, strlen(GW_snsrLogStrBuff));
                                       }
@@ -9399,8 +9399,8 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                       {
                                           if (snsrId == PLTFRM_VIBRATION_SNSR_1_DEV_ID)
                                               printf(" <%s> \n", snsrOp ? "Yes" : "No");
-                                          else 
-                                          { 
+                                          else
+                                          {
                                               if (snsrId == PLTFRM_MAG3110_1_DEV_ID)
                                               {
                                                   if (tlvLen3 == 6)
@@ -9427,7 +9427,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
 
                                                       // printf("tot-abs-delta: %f uT \n", totalDeltaF);
                                                   }
-                                                  else 
+                                                  else
                                                       printf("\n tlvLen3 : %d  \n",  tlvLen3);
                                               }
                                               else
@@ -9440,9 +9440,9 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                                           unsigned char alertType;
                                                           unsigned char upperSw;
                                                           unsigned char lowerSw;
-  
+
                                                           // printf("\n 0x%02x \n", byte);
-                                                          
+
                                                           alertType = byte & 0x3;
                                                           byte >>= 2;
                                                           lowerSw =  byte & 0x3;
@@ -9452,21 +9452,21 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                                           // printf("\n 0x%02x \n", byte);
 
                                                           printf("Upper-Sw<%s> Lower-Sw<%s> Alert<%s> \n",
-                                                                 upperSw == 1 ?  "Open" :  "Closed",             
-                                                                 lowerSw == 1 ?  "Open" :  "Closed",      
+                                                                 upperSw == 1 ?  "Open" :  "Closed",
+                                                                 lowerSw == 1 ?  "Open" :  "Closed",
                                                                  alertType ==  0  ? "None" : \
                                                                  alertType ==  1  ? "High **************" : \
                                                                  alertType ==  2  ? "Low **************" : "Invalid **************");
-         
+
                                                       }
-                                                      else 
+                                                      else
                                                           printf("\n tlvLen3 : %d  !!\n",  tlvLen3);
-                                                                      
+
                                                   }
                                                   else
                                                   {
                                                       if (snsrId == PLTFRM_WPDS_DEV_ID)
-                                                      {                                
+                                                      {
                                                           if (tlvLen3 >= (1 + 2 + 1 + 3))
                                                           {
                                                               int channId, battV, rssi;
@@ -9482,15 +9482,15 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                                           }
                                                           else
                                                               printf("Malformed event !! \n");
-                                                      }    
-                                                      else                              
-                                                      {                                
+                                                      }
+                                                      else
+                                                      {
                                                           if (snsrId == PLTFRM_AUTO_ASSY_TMON_1_DEV_ID)
                                                           {
                                                               int idx;
                                                               for (idx=0; idx<2; idx++)
                                                               {
-                                                                   printf("Socket [%d] <%s> \n", 
+                                                                   printf("Socket [%d] <%s> \n",
                                                                           idx + 1, (snsrOp & (1 << idx)) ? "Empty" : "Plugged-In");
                                                               }
                                                           }
@@ -9500,7 +9500,7 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                                               {
                                                                   if (tlvLen3 == 3)
                                                                   {
-                                                                      printf("Port<%d> Pin<%d> Val<%d> \n", 
+                                                                      printf("Port<%d> Pin<%d> Val<%d> \n",
                                                                              *(buff3_p) + 1,
                                                                              *(buff3_p + 1),
                                                                              *(buff3_p + 2));
@@ -9510,37 +9510,37 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
                                                               }
                                                               else
                                                               {
-                                                                  if (strlen(unit_p) > 0)  
+                                                                  if (strlen(unit_p) > 0)
                                                                       printf(" <%d %s> \n", snsrOp, unit_p);
                                                                   else
                                                                       printf(" <%d> \n", snsrOp);
                                                               }
                                                           }
-                                                      }    
+                                                      }
                                                   }
                                               }
-                                          }   
+                                          }
                                       }
                                   }
                               }
                           }
-                      
+
                           if (verbose)
                                printf("\nSnsrOp<%d>", snsrOp);
                       }
                   }
 #ifdef JSON_ENC_ENA
-                  json_array_append_new(jsonSnsrInfoListObj_p, jsonSnsrInfoObj_p); 
+                  json_array_append_new(jsonSnsrInfoListObj_p, jsonSnsrInfoObj_p);
 #endif
-              } // SENSOR_OP TLV found 
+              } // SENSOR_OP TLV found
 
           }  // while (1)
 
           // All SENSOR_OP TLVs in SENSOR_OP_LIST TLV processed
-          
+
 #ifdef JSON_ENC_ENA
-          json_object_set_new(jsonNodeMsgObj_p, "SensorDetails", jsonSnsrInfoListObj_p); 
-     
+          json_object_set_new(jsonNodeMsgObj_p, "SensorDetails", jsonSnsrInfoListObj_p);
+
           /*
            * Returns the JSON representation of json as a string, or NULL on error. The return
            * value must be freed by the caller using free().
@@ -9552,11 +9552,11 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
           pthread_mutex_unlock(&GW_jsonBuffMutex);
           free(jasonEncDump_p);
 
-          FILE *jsonFile_p = fopen("./WSN.JSON", "a+");      
+          FILE *jsonFile_p = fopen("./WSN.JSON", "a+");
           if (jsonFile_p != NULL)
           {
               fputs("var data", jsonFile_p);
- 
+
               // returns 0 on success and -1 on error
               json_dumpf(jsonNodeMsgObj_p, jsonFile_p, JSON_INDENT(5) | JSON_REAL_PRECISION(8));
 
@@ -9569,19 +9569,19 @@ void GW_processNodeMsg(int expShortAddr, unsigned char *buff_p, int msgLen)
        }  // SENSOR_OP_LIST TLV found
    }  // msglen is <= 255
 
-          
+
 #ifdef JSON_ENC_ENA
    json_decref(jsonNodeMsgObj_p);
 #endif
 
-_end:   
+_end:
 
 #ifdef __THINGSPEAK_SUPPORT_ENA__
    if (__tsCntxt_p != NULL)
    {
        if (strlen(__tsCntxt_p->dataBuff) > 0)
            ts_datastream_send(__tsCntxt_p);
-     
+
        ts_delete_context(__tsCntxt_p);
    }
 #endif
@@ -9602,20 +9602,20 @@ _end:
  *
  ********************************************************************
  */
-void GW_processRcvdMsg_1(int expShortAddr, unsigned char *buff_p, 
+void GW_processRcvdMsg_1(int expShortAddr, unsigned char *buff_p,
                          int offset, int gwMsgType, int msgLen)
 {
     /*
-     * GW payload format - 
+     * GW payload format -
      * Type (2 bytes)
-     */ 
+     */
 
     switch (gwMsgType)
     {
        case LPWMN_GW_MSG_TYPE_RELAY_FROM_NODE:
             {
                 // printf("----------------------------------------------------------------------------------- \n");
-                GW_processNodeMsg(expShortAddr, buff_p + offset, msgLen); 
+                GW_processNodeMsg(expShortAddr, buff_p + offset, msgLen);
 
                 // printf("----------------------------------------------------------------------------------- \n");
             }
@@ -9624,7 +9624,7 @@ void GW_processRcvdMsg_1(int expShortAddr, unsigned char *buff_p,
        case LPWMN_GW_MSG_TYPE_EVENT:
             {
                 printf("\nReceived Event <%u> \n", msgLen >= LPWMN_GW_EVT_ID_LEN ? *(buff_p + offset) : 0);
-                GW_processEvt(buff_p + offset, msgLen); 
+                GW_processEvt(buff_p + offset, msgLen);
             }
             break;
 
@@ -9675,7 +9675,7 @@ void GW_handleNwkDataTraffic(int expShortAddr)
 
        switch (totReadLen)
        {
-          case UART_MSG_HDR_PYLD_CRC_FIELD_OFF: 
+          case UART_MSG_HDR_PYLD_CRC_FIELD_OFF:
                {
                    int idx;
                    unsigned short calcCrc16, rxdCrc16;
@@ -9716,7 +9716,7 @@ void GW_handleNwkDataTraffic(int expShortAddr)
                    currMsgType = (currMsgType << 8) | serInputBuff[UART_MSG_HDR_MSG_TYPE_FIELD_OFF + 1];
 
                    if (verbose)
-                       printf("\nMessage Type<%d> / Length<%d>", currMsgType, pyldLen);                   
+                       printf("\nMessage Type<%d> / Length<%d>", currMsgType, pyldLen);
 
                    readLen = pyldLen + UART_MSG_HDR_PYLD_CRC_FIELD_LEN;
                }
@@ -9727,7 +9727,7 @@ void GW_handleNwkDataTraffic(int expShortAddr)
                    if (verbose)
                    {
                        int idx;
-        
+
                        for (idx = 0; idx<pyldLen + UART_MSG_HDR_LEN; idx++)
                        {
                             if (idx % 8 == 0)
@@ -9736,9 +9736,9 @@ void GW_handleNwkDataTraffic(int expShortAddr)
                        }
                        printf("\n");
                    }
-                 
-                   if (pyldLen > 0) 
-                   { 
+
+                   if (pyldLen > 0)
+                   {
                       unsigned short calcPyldCrc16, rxdPyldCrc16;
                       calcPyldCrc16 = crc16(serInputBuff + UART_MSG_HDR_LEN, pyldLen);
                       rxdPyldCrc16 = serInputBuff[UART_MSG_HDR_PYLD_CRC_FIELD_OFF];
@@ -9767,7 +9767,7 @@ void GW_handleNwkDataTraffic(int expShortAddr)
        }
     }
 }
-    
+
 
 /*
  ********************************************************************
@@ -9791,8 +9791,8 @@ int GW_connectToCID(void)
 
     memset(&cidAddr, 0, sizeof(cidAddr));
     cidAddr.sin_family      = AF_INET;
-    cidAddr.sin_addr.s_addr = inet_addr("127.0.0.1");  // CID IP 
-    cidAddr.sin_port        = htons(GW_cidPortNr);  // CID port 
+    cidAddr.sin_addr.s_addr = inet_addr("127.0.0.1");  // CID IP
+    cidAddr.sin_port        = htons(GW_cidPortNr);  // CID port
 
     /* Establish the connection to the echo server */
     rc = connect(GW_cidSockFd, (struct sockaddr *)&cidAddr, sizeof(cidAddr));
@@ -9804,7 +9804,7 @@ int GW_connectToCID(void)
 
     return 1;
 }
-       
+
 
 /*
  ********************************************************************
@@ -9817,22 +9817,22 @@ int GW_connectToCID(void)
 int GW_fwdCoordMsgToClient(int sockFd, unsigned char *buff_p, int buffLen)
 {
    int rc = 0, bytesWr = 0;
- 
+
    if (buffLen <= 0)
        return -1;
-   
-   do 
+
+   do
    {
       /*
-       * On success, this call returns the number of characters sent. On error, 
+       * On success, this call returns the number of characters sent. On error,
        * -1 is returned, and errno is set appropriately.
        */
       rc =  send(sockFd, buff_p + bytesWr, buffLen - bytesWr, 0);
-      if (rc <= 0) 
+      if (rc <= 0)
       {
-          printf("<%s> send(%d, %d) returned %d !! - errno <%d> \n", 
+          printf("<%s> send(%d, %d) returned %d !! - errno <%d> \n",
                  __FUNCTION__, sockFd, buffLen - bytesWr, rc, errno);
- 
+
           rc = -1;
       }
       else
@@ -9865,7 +9865,7 @@ int GW_readTCPPort(int sockFd, unsigned char *buff_p, unsigned int len)
        * The recv() call is normally used only on a connected socket (see connect(2)).
        */
 
-      rdLen = recv(sockFd, buff_p + totRead, 1, 
+      rdLen = recv(sockFd, buff_p + totRead, 1,
       totRead == 0 ? MSG_WAITALL : MSG_DONTWAIT);
 
       if (0)
@@ -9880,9 +9880,9 @@ int GW_readTCPPort(int sockFd, unsigned char *buff_p, unsigned int len)
       {
           if (errno == EAGAIN)
           {
-              // printf("<%s> nothing to read() - %d \n", __FUNCTION__, rdLen); 
+              // printf("<%s> nothing to read() - %d \n", __FUNCTION__, rdLen);
               return totRead;
-          }   
+          }
           printf("<%s> read() failed  - %d !! \n", __FUNCTION__, rdLen);
           return rdLen;
       }
@@ -9911,7 +9911,7 @@ int GW_setUpTCPListenSocket(void)
         printf("socket() failed !! - errno<%d> \n",  errno);
         return -1;
     }
-      
+
     /* Construct local address structure */
     memset(&servAddr, 0, sizeof(servAddr));   /* Zero out structure */
     servAddr.sin_family = AF_INET;    /* Internet address family */
@@ -9945,21 +9945,21 @@ int GW_setUpTCPListenSocket(void)
  */
 int GW_waitForClientConnects(void)
 {
-    int clientSockFd = -1;                
-    struct sockaddr_in clientSockAddr; 
+    int clientSockFd = -1;
+    struct sockaddr_in clientSockAddr;
     unsigned int clientAddrLen = sizeof(clientSockAddr);
-    
+
     printf("<%s> Entry ... \n", __FUNCTION__);
 
     /* Wait for a client to connect */
-    clientSockFd = accept(GW_listenFd, (struct sockaddr *)&clientSockAddr, &clientAddrLen); 
+    clientSockFd = accept(GW_listenFd, (struct sockaddr *)&clientSockAddr, &clientAddrLen);
     if (clientSockFd < 0)
     {
         printf("accept() failed !! - errno<%d> \n",  errno);
         return -1;
     }
 
-    printf("<%s> Rcvd connection from client <%s> \n", 
+    printf("<%s> Rcvd connection from client <%s> \n",
            __FUNCTION__, inet_ntoa(clientSockAddr.sin_addr));
 
     return clientSockFd;
@@ -9977,7 +9977,7 @@ int GW_waitForClientConnects(void)
 void GW_clientReqHndlr(int sockFd)
 {
     unsigned char *rxBuff_p;
-           
+
     // printf("<%s> clientSockFd<%d> \n", __FUNCTION__, sockFd);
 
     rxBuff_p = (unsigned char *)malloc(1024);
@@ -9988,8 +9988,8 @@ void GW_clientReqHndlr(int sockFd)
     }
 
     // printf("<%s> Entering client thread loop .... \n", __FUNCTION__);
-    
-    do 
+
+    do
     {
        int rc, pyldLen, msgType;
 
@@ -10008,8 +10008,8 @@ void GW_clientReqHndlr(int sockFd)
 
        // printf("\nhttp request:\n%s\n", GW_httpRequestBuff);
 
-      
-#if 0 
+
+#if 0
        printf("\n ------------------------------------------------------ \n");
        printf("\n httpresponse:%d\n", strlen(GW_httpResponseBuff));
        printf("\n httpresponse:\n%s\n", GW_httpResponseBuff);
@@ -10031,9 +10031,9 @@ void GW_clientReqHndlr(int sockFd)
 
        if ((rc = GW_fwdCoordMsgToClient(sockFd, GW_httpResponseBuff, strlen(GW_httpResponseBuff)))  <  0)
        {
-           printf("\n<%s> closing client socket <%d> \n", 
+           printf("\n<%s> closing client socket <%d> \n",
                   __FUNCTION__, sockFd);
-           close(sockFd); 
+           close(sockFd);
            break;
        }
        else
@@ -10056,7 +10056,7 @@ void GW_clientReqHndlr(int sockFd)
 void *GW_serverThreadFn(void *args_p)
 {
     printf("<%s> Entry ... \n", __FUNCTION__);
-        
+
     GW_setUpTCPListenSocket();
 
     do
@@ -10064,7 +10064,7 @@ void *GW_serverThreadFn(void *args_p)
        int clientSockFd = GW_waitForClientConnects( );
        if (clientSockFd < 0)
            break;
-       else 
+       else
        {
            GW_clientReqHndlr(clientSockFd);
        }
@@ -10155,7 +10155,7 @@ int GW_readTSMapFile(void)
        char *buff_p = fileBuff_p;
        int done = 0;
        GW_tsMappingEntry_s *lastEntry_p = NULL;
-       
+
        do
        {
            char *f_p;
@@ -10166,11 +10166,11 @@ int GW_readTSMapFile(void)
            if ((f_p = strstr(buff_p, "<$<")) != NULL)
            {
                int rc;
- 
+
                rc = sscanf(f_p, "<$< %x:%x:%x:%x:%x:%x:%x:%x %s %d field%d >$>",
                            &eA[0], &eA[1], &eA[2], &eA[3], &eA[4], &eA[5], &eA[6], &eA[7],
                            channAPIKey, &snsrId, &fieldIdx);
-  
+
                if (rc != 11)
                {
                    printf("Entry # %d in incorrect format !! \n", entryCnt);
@@ -10229,7 +10229,7 @@ int GW_readTSMapFile(void)
                        printf(" fileBuff_p<%p> buff_p<%p> f_p<%p> \n", fileBuff_p, buff_p, f_p);
 
                    {
-                      int idx; 
+                      int idx;
                       GW_tsMappingEntry_s *entry_p;
 
                       entry_p = (GW_tsMappingEntry_s *)malloc(sizeof(GW_tsMappingEntry_s));
@@ -10237,17 +10237,17 @@ int GW_readTSMapFile(void)
                       {
                           printf("failed to malloc GW_tsMappingEntry_s !! \n");
                           exit(1);
-                      }   
-                      
-                      for (idx=0; idx<LPWMN_MAC_EXT_ADDR_LEN; idx++)  
+                      }
+
+                      for (idx=0; idx<LPWMN_MAC_EXT_ADDR_LEN; idx++)
                            entry_p->_extAddr[idx] = eA[idx];
 
-                      strcpy(entry_p->_channAPIKey, channAPIKey); 
+                      strcpy(entry_p->_channAPIKey, channAPIKey);
 
-                      entry_p->_fieldIdx = fieldIdx; 
+                      entry_p->_fieldIdx = fieldIdx;
 
                       entry_p->_snsrId = snsrId;
- 
+
                       entry_p->_next_p = NULL;
 
                       if (GW_tsMappingHead_p == NULL)
@@ -10474,7 +10474,7 @@ int main(int argc, const char* argv[] )
         rc = GW_getCoordRadioTxPwr();
         return rc;
     }
-    
+
     if (strcmp(argv[2], "dsd") == 0x0)
     {
         rc = GW_dropSnsrDataReq( );
@@ -10526,13 +10526,13 @@ int main(int argc, const char* argv[] )
 
     if (strcmp(argv[2], "wifi-ipv4-mask") == 0x0)
     {
-        rc = GW_getWiFiIPv4Mask(); 
+        rc = GW_getWiFiIPv4Mask();
         return rc;
     }
 
     if (strcmp(argv[2], "wifi-gw-ipv4") == 0x0)
     {
-        rc = GW_getWiFiGWIPv4(); 
+        rc = GW_getWiFiGWIPv4();
         return rc;
     }
 
@@ -10586,7 +10586,7 @@ int main(int argc, const char* argv[] )
             printf("Please enter valid broadcast hop count (>= 1 & <= 15) !! \n");
             rc = 8;
         }
-        else 
+        else
         {
             unsigned int hopCnt;
 
@@ -10610,7 +10610,7 @@ int main(int argc, const char* argv[] )
             printf("Please enter valid broadcast hop count (>= 1 & <= 15) and reboot delay !! \n");
             rc = 8;
         }
-        else 
+        else
         {
             unsigned int hopCnt;
 
@@ -10623,7 +10623,7 @@ int main(int argc, const char* argv[] )
             else
             {
                 unsigned int delay;
-               
+
                 rc = sscanf(argv[4], "%u", &delay);
                 if (rc != 1 || delay < 1 || delay> 65535)
                 {
@@ -10649,11 +10649,11 @@ int main(int argc, const char* argv[] )
         else
         {
             unsigned int shortAddr;
- 
+
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 2)
             {
-                printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 9;
             }
@@ -10696,11 +10696,11 @@ int main(int argc, const char* argv[] )
         else
         {
             unsigned int shortAddr;
- 
+
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 2)
             {
-                printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 9;
             }
@@ -10766,7 +10766,7 @@ int main(int argc, const char* argv[] )
         rc = GW_getBlackListReqHndlr( );
         return rc;
     }
-    
+
     if (strcmp(argv[2], "wl-add") == 0x0)
     {
         if (argc < 4)
@@ -10802,7 +10802,7 @@ int main(int argc, const char* argv[] )
         rc = GW_getWhiteListReqHndlr( );
         return rc;
     }
-    
+
     if (strcmp(argv[2], "sc") == 0x0)
     {
         rc = GW_startCoordReq( );
@@ -10811,7 +10811,7 @@ int main(int argc, const char* argv[] )
 
     if (strcmp(argv[2], "chm") == 0x0)
     {
-        int error = 0, samplingInterval, sampleCnt; 
+        int error = 0, samplingInterval, sampleCnt;
         char extLNAFlag = 'n';
 
         if (argc >= 4)
@@ -10833,7 +10833,7 @@ int main(int argc, const char* argv[] )
                         printf("Specify if external LNA should be enabled or not (y/n) !! \n");
                         error = 1;
                         rc = 8;
-                    } 
+                    }
                     else
                     {
                         if (argc >= 6)
@@ -10844,7 +10844,7 @@ int main(int argc, const char* argv[] )
                                 printf("Please specify valid sampling interval (in milliseconds) !! \n");
                                 error = 1;
                                 rc = 9;
-                            } 
+                            }
                         }
                         else
                             samplingInterval = 1;
@@ -10875,7 +10875,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &ffdSA);
             if (rc != 1 || ffdSA < 2 || ffdSA > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid FFD address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid FFD address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -10888,7 +10888,7 @@ int main(int argc, const char* argv[] )
                     rc = sscanf(argv[4], "%u", &nteSA);
                     if (rc != 1 || nteSA < 1 || nteSA > LPWMN_MAX_UNICAST_SHORT_ADDR)
                     {
-                        printf("please enter short address whose corresponding entry is required (> 1 & <= %u) !! \n", 
+                        printf("please enter short address whose corresponding entry is required (> 1 & <= %u) !! \n",
                                LPWMN_MAX_UNICAST_SHORT_ADDR);
                     }
                     else
@@ -10907,11 +10907,11 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter valid FFD address and entry short address (> 1 & <= %u) !! \n", 
+            printf("please enter valid FFD address and entry short address (> 1 & <= %u) !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 10;
         }
- 
+
         return rc;
     }
 
@@ -10925,7 +10925,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &ffdSA);
             if (rc != 1 || ffdSA < 2 || ffdSA > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid FFD address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid FFD address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -10938,7 +10938,7 @@ int main(int argc, const char* argv[] )
                     rc = sscanf(argv[4], "%u", &nodeSA);
                     if (rc != 1 || nodeSA < 1 || nodeSA > LPWMN_MAX_UNICAST_SHORT_ADDR)
                     {
-                        printf("please enter a valid route-to node's address (> 1 & <= %u) !! \n", 
+                        printf("please enter a valid route-to node's address (> 1 & <= %u) !! \n",
                                LPWMN_MAX_UNICAST_SHORT_ADDR);
                     }
                     else
@@ -10957,14 +10957,14 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter valid FFD address and route-to node's address (> 1 & <= %u) !! \n", 
+            printf("please enter valid FFD address and route-to node's address (> 1 & <= %u) !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 10;
         }
- 
+
         return rc;
     }
-    
+
     if (strcmp(argv[2], "gcrtvec") == 0x0)
     {
         rc = GW_getCoordAttrVal(NWK_ROUTING_TABLE_VALID_ENTRY_CNT_ATTR_ID);
@@ -10986,7 +10986,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 2)
             {
-                printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11003,8 +11003,8 @@ int main(int argc, const char* argv[] )
 
         return rc;
     }
-    
-    
+
+
     if (strcmp(argv[2], "bcn-r-a") == 0x0)
     {
         unsigned int shortAddr, attrId;
@@ -11013,7 +11013,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11027,7 +11027,7 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+            printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 9;
         }
@@ -11044,7 +11044,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11058,7 +11058,7 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter short address (>= 1 & <= %u) !! \n", 
+            printf("please enter short address (>= 1 & <= %u) !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 9;
         }
@@ -11075,7 +11075,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11089,7 +11089,7 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter short address (>= 1 & <= %u) !! \n", 
+            printf("please enter short address (>= 1 & <= %u) !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 9;
         }
@@ -11097,13 +11097,13 @@ int main(int argc, const char* argv[] )
 
         return rc;
     }
-    
+
     if (strcmp(argv[2], "gcfmdc") == 0x0)
     {
         rc = GW_getCoordFreeMemDescCnt( );
         return rc;
     }
-    
+
     if (strcmp(argv[2], "sw_sby_i") == 0x0)
     {
         if (argc >= 4)
@@ -11112,7 +11112,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (shortAddr <= 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11125,7 +11125,7 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter short address (> 1 & <= %u) and hex file !! \n", 
+            printf("please enter short address (> 1 & <= %u) and hex file !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 200;
         }
@@ -11134,13 +11134,13 @@ int main(int argc, const char* argv[] )
     if (strcmp(argv[2], "uc_fu") == 0x0)
     {
         unsigned int shortAddr;
-        
+
         if (argc >= 5)
         {
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11154,16 +11154,16 @@ int main(int argc, const char* argv[] )
                 fileFd = open(file_p, O_RDONLY);
                 if (fileFd < 0)
                 {
-                    printf("Failed to open specified hex file <%s> !! - errno<%d> \n", 
+                    printf("Failed to open specified hex file <%s> !! - errno<%d> \n",
                            file_p, errno);
                     return 500;
                 }
 
                 printf("Opened specified file <%s> fd<%d>\n", file_p, fileFd);
-    
+
                 if (fstat(fileFd, &statBuff) < 0)
                 {
-                    printf("Failed to stat specified hex file <%s> - errno<%d> !! \n", 
+                    printf("Failed to stat specified hex file <%s> - errno<%d> !! \n",
                            file_p, errno);
                     return 501;
                 }
@@ -11211,7 +11211,7 @@ int main(int argc, const char* argv[] )
         }
         else
         {
-            printf("please enter short address (>= 1 & <= %u) and hex file !! \n", 
+            printf("please enter short address (>= 1 & <= %u) and hex file !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 200;
         }
@@ -11227,14 +11227,14 @@ int main(int argc, const char* argv[] )
              {
                  char lenStr[16];
                  char desc[64];
-               
+
                  if (GW_attrDescrList[attrIdx].attrLen > 0)
                      sprintf(lenStr, "%d", GW_attrDescrList[attrIdx].attrLen);
                  else
                      sprintf(lenStr, "%s", "variable");
 
                  printf("Attr<%04u>   %54s   read<%c>   write<%c>   length<%s> \n",
-                        GW_attrDescrList[attrIdx].attrId, 
+                        GW_attrDescrList[attrIdx].attrId,
                         GW_attrDescrList[attrIdx].descrStr,
                         GW_attrDescrList[attrIdx].readAllowed ? 'y' : 'n',
                         GW_attrDescrList[attrIdx].writeAllowed ? 'y' : 'n',
@@ -11247,7 +11247,7 @@ int main(int argc, const char* argv[] )
         printf("------------------------------------------------------------------------------------------------------------\n");
 
         return 0;
-    }         
+    }
 
     if (strcmp(argv[2], "glav") == 0x0)
     {
@@ -11257,7 +11257,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11302,13 +11302,13 @@ int main(int argc, const char* argv[] )
                     rc = 12;
                 }
             }
-        } 
+        }
         else
-        { 
-            printf("please enter short address (>= 1 & <= %u), attribute id and index !! \n", 
+        {
+            printf("please enter short address (>= 1 & <= %u), attribute id and index !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 11;
-        } 
+        }
 
         return rc;
     }
@@ -11321,7 +11321,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11349,13 +11349,13 @@ int main(int argc, const char* argv[] )
                     rc = 10;
                 }
             }
-        } 
+        }
         else
-        { 
-            printf("please enter short address (>= 1 & <= %u) and attribute id !! \n", 
+        {
+            printf("please enter short address (>= 1 & <= %u) and attribute id !! \n",
                    LPWMN_MAX_UNICAST_SHORT_ADDR);
             rc = 11;
-        } 
+        }
 
         return rc;
     }
@@ -11371,7 +11371,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 1 || shortAddr > LPWMN_MAX_UNICAST_SHORT_ADDR)
             {
-                printf("please enter a valid short address (>= 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (>= 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11418,7 +11418,7 @@ int main(int argc, const char* argv[] )
             rc = sscanf(argv[3], "%u", &shortAddr);
             if (rc != 1 || shortAddr < 2)
             {
-                printf("please enter a valid short address (> 1 & <= %u) !! \n", 
+                printf("please enter a valid short address (> 1 & <= %u) !! \n",
                        LPWMN_MAX_UNICAST_SHORT_ADDR);
                 rc = 8;
             }
@@ -11540,12 +11540,12 @@ int main(int argc, const char* argv[] )
                 return 10;
             }
 
-                    
+
             if (argv[4] != NULL && argv[5] != NULL)
             {
                 __loadCellMVal = atoi(argv[4]);
                 __loadCellCVal = atoi(argv[5]);
-            } 
+            }
 
             printf("Serial port <%s> configuration done ... \n", argv[1]);
             printf("Waiting for events / data traffic from the LPWMN node %d... \n", shortAddr);
@@ -11562,7 +11562,7 @@ int main(int argc, const char* argv[] )
 
 
     if (strcmp(argv[2], "mon") == 0x0 ||  monFlag
-       || (strcmp(argv[2], "lmon") == 0x0) 
+       || (strcmp(argv[2], "lmon") == 0x0)
        || (strcmp(argv[2], "mon_ts") == 0x0))
     {
 #if 1
@@ -11580,13 +11580,13 @@ int main(int argc, const char* argv[] )
                     {
                         __loadCellMVal = atoi(argv[3]);
                         __loadCellCVal = atoi(argv[4]);
-                    } 
+                    }
                 }
             }
         }
 #endif
 
-        if (strcmp(argv[2], "mon_ts") == 0) 
+        if (strcmp(argv[2], "mon_ts") == 0)
         {
 #ifdef __THINGSPEAK_SUPPORT_ENA__
             if (GW_readTSMapFile() <  0)
@@ -11597,20 +11597,20 @@ int main(int argc, const char* argv[] )
 #endif
         }
 
-        if (strcmp(argv[2], "lmon") == 0) 
+        if (strcmp(argv[2], "lmon") == 0)
         {
             if (argc >= 4)
             {
                 unsigned int snsrId;
                 rc = sscanf(argv[3], "%u", &snsrId);
-                if (rc != 1 
+                if (rc != 1
                     || snsrId == PLTFRM_GENERIC_DEV_ID
                     || snsrId == PLTFRM_DUMMY_DEV_ID)
                 {
                     printf("Please specify valid snsr Id to log (%d < id <%d)!! \n",
                            PLTFRM_DUMMY_DEV_ID,
                            PLTFRM_GENERIC_DEV_ID);
-  
+
                     return 51;
                 }
                 else
@@ -11623,7 +11623,7 @@ int main(int argc, const char* argv[] )
                        return 54;
                    }
                    else
-                       printf("Opened file <%s> to log data for sensor <%d/0x%x> ... \n", 
+                       printf("Opened file <%s> to log data for sensor <%d/0x%x> ... \n",
                               GW_SNSR_DATA_LOG_FILE_NAME, GW_logSnsrId, GW_logSnsrId);
                 }
             }
@@ -11632,7 +11632,7 @@ int main(int argc, const char* argv[] )
                 printf("Please specify valid snsr Id to log (%d < id <%d)!! \n",
                        PLTFRM_DUMMY_DEV_ID,
                        PLTFRM_GENERIC_DEV_ID);
-  
+
                 return 52;
             }
         }
@@ -11654,12 +11654,12 @@ int main(int argc, const char* argv[] )
                 if (opn == 'o' || opn == 'c')
                 {
                     return GW_sendBBOpnRequest(opn == 'o' ? 1 : 0);
-                } 
+                }
                 else
                 {
                     printf("Please specify operation - 'o' or 'c' !! \n");
                     return 12;
-                } 
+                }
             }
         }
         else
